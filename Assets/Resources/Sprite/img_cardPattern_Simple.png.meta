@@ -1,0 +1,1258 @@
+fileFormatVersion: 2
+guid: 6e619e311ef2fc54da0797acb83a2551
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 5000
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e224ac0c9d29f794db4e8e880c9b9211
+      internalID: 560605862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_1
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fce9d5472fa9fa94291bb82ea0e7bb27
+      internalID: 202810857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_2
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23aeab14626aeb843a35fe5142cdb6d8
+      internalID: -2085572553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_3
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e393f7818ab4b44899febc60e47eabd
+      internalID: 1909725841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_4
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 801ae2fa7d6e9bc40a20a9181c6b1386
+      internalID: -1013629386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_5
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b32b20de253c64e83c7eb67dec8ff7
+      internalID: -272355321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_6
+      rect:
+        serializedVersion: 2
+        x: 2148
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be03d3376d44abe40873fdb2da3d197e
+      internalID: -1141417460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_7
+      rect:
+        serializedVersion: 2
+        x: 2506
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f64d7c1edd8c7a4391ded4df69e4cb5
+      internalID: 1680335541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_8
+      rect:
+        serializedVersion: 2
+        x: 2864
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee6b726f8b4167449b911fe9b59be37
+      internalID: 1984241737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_9
+      rect:
+        serializedVersion: 2
+        x: 3222
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc48f569d7cd9740a7e3a3186d4a7ea
+      internalID: 1598799306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_10
+      rect:
+        serializedVersion: 2
+        x: 3580
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e265dc00402fd8d43ad48ab612a49f7f
+      internalID: -1865284268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_11
+      rect:
+        serializedVersion: 2
+        x: 3938
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bd0aa3dd7479de41bf95627351abcde
+      internalID: 257890522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_12
+      rect:
+        serializedVersion: 2
+        x: 4296
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 830b24f899cf0c24e8271bfee39c07ad
+      internalID: 2039771865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6bbe109fce6fb940a9bde685d2d930b
+      internalID: -288445575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_14
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 500d2ad76f313ba44853d0649b67d774
+      internalID: -2039858246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_15
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c827fa0b5174bfd4184c0fc624bffb23
+      internalID: -893472858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_16
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b12a8b2d5d98c814c8cf7f51c186b3d4
+      internalID: -143829334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_17
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d82c3fd78518b2548b9806c635a37119
+      internalID: 95539346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_18
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95603f29878bcae49819a57eef3a8bcd
+      internalID: 1329680366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_19
+      rect:
+        serializedVersion: 2
+        x: 2148
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c43eb4b12c7db14c8271fb4d1fa2f97
+      internalID: -1929445587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_20
+      rect:
+        serializedVersion: 2
+        x: 2506
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b2628a45063c3748a1844bc25ce7a1f
+      internalID: -395561566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_21
+      rect:
+        serializedVersion: 2
+        x: 2864
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec17047483c039d48afe5ab8113123ad
+      internalID: 146227159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_22
+      rect:
+        serializedVersion: 2
+        x: 3222
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54bda7feeb63d1d458dfc45c8d007bbc
+      internalID: 4378598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_23
+      rect:
+        serializedVersion: 2
+        x: 3580
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1947f1c4198f31b4697aec17d3c95d6e
+      internalID: -452199169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_24
+      rect:
+        serializedVersion: 2
+        x: 3938
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e65ed8912c824349aac93132c633fe6
+      internalID: 224751866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_25
+      rect:
+        serializedVersion: 2
+        x: 4296
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b055799b4483c0345b93d5b469bbf681
+      internalID: -467071708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47c312f5966aeac45b5d2d4c44ddebce
+      internalID: -1246154712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_27
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f822432db490474c9a5f5e6d210e8cf
+      internalID: -465573895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_28
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f061d55d49c54847b17db813ae8b178
+      internalID: 409772280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_29
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a9d0fa1fd4a816489d7afec1c6ec373
+      internalID: 1158074849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_30
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5689513d34cca04ba13b4067238272d
+      internalID: 1903605155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_31
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c9b08fa45c248f409d50c3547f0f3a2
+      internalID: 1988858285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_32
+      rect:
+        serializedVersion: 2
+        x: 2148
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b492411b38cc40e4ca2ede0af7804911
+      internalID: -592195761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_33
+      rect:
+        serializedVersion: 2
+        x: 2506
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f1ad7fc5522654eade662d2b5af222
+      internalID: -1026759813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_34
+      rect:
+        serializedVersion: 2
+        x: 2864
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c15b10bfb816bc43a8b0718eb16774b
+      internalID: -1567552621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_35
+      rect:
+        serializedVersion: 2
+        x: 3222
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 981c02577b858884691a0314443e7d28
+      internalID: 981059224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_36
+      rect:
+        serializedVersion: 2
+        x: 3580
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b542cbb1ee4240149bb45b1dde40ac7f
+      internalID: 1516870617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_37
+      rect:
+        serializedVersion: 2
+        x: 3938
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11e8659d83e364e40af0576bccec2a88
+      internalID: -598059967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_38
+      rect:
+        serializedVersion: 2
+        x: 4296
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0b5654fe92a9464da720cb79436514c
+      internalID: -184738995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07e3d5f7a051c6940a9ffd42ac0a947b
+      internalID: 1397297248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_40
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f299ebe037cc0148998c3c701a4b747
+      internalID: 867339329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_41
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2353ec739f14c7848b69fd3855e7cb18
+      internalID: -725403658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_42
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 975edc9ef77966542a05ace20d08dc3e
+      internalID: -1570616032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_43
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b2e1ee06706c2f4e968a0149dc874ae
+      internalID: 181643367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_44
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10d3a09fd8d117f4b863036746db63a9
+      internalID: 1234787819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_45
+      rect:
+        serializedVersion: 2
+        x: 2148
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebabd9a446c5faa4f9620a2850d724af
+      internalID: 1604436996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_46
+      rect:
+        serializedVersion: 2
+        x: 2506
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf959af241f79f40ac3e5ab5f4abfdf
+      internalID: 930839245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_47
+      rect:
+        serializedVersion: 2
+        x: 2864
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88b3df4c669ffad44b245ab9e7033d8d
+      internalID: 1213630436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_48
+      rect:
+        serializedVersion: 2
+        x: 3222
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f10d80d4a624cc42b3bf2db9bb33e43
+      internalID: 1022500504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_49
+      rect:
+        serializedVersion: 2
+        x: 3580
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fec633d83b0f7094eb8b0143ba0c5727
+      internalID: -861120451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_50
+      rect:
+        serializedVersion: 2
+        x: 3938
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94527695c7a32de47962561c1d8e2fe9
+      internalID: -1128601877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_Simple_51
+      rect:
+        serializedVersion: 2
+        x: 4296
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2eab34a37d75f45aaa64d3eed41a04
+      internalID: -66977265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      img_cardPattern_Simple_0: 560605862
+      img_cardPattern_Simple_1: 202810857
+      img_cardPattern_Simple_10: -1865284268
+      img_cardPattern_Simple_11: 257890522
+      img_cardPattern_Simple_12: 2039771865
+      img_cardPattern_Simple_13: -288445575
+      img_cardPattern_Simple_14: -2039858246
+      img_cardPattern_Simple_15: -893472858
+      img_cardPattern_Simple_16: -143829334
+      img_cardPattern_Simple_17: 95539346
+      img_cardPattern_Simple_18: 1329680366
+      img_cardPattern_Simple_19: -1929445587
+      img_cardPattern_Simple_2: -2085572553
+      img_cardPattern_Simple_20: -395561566
+      img_cardPattern_Simple_21: 146227159
+      img_cardPattern_Simple_22: 4378598
+      img_cardPattern_Simple_23: -452199169
+      img_cardPattern_Simple_24: 224751866
+      img_cardPattern_Simple_25: -467071708
+      img_cardPattern_Simple_26: -1246154712
+      img_cardPattern_Simple_27: -465573895
+      img_cardPattern_Simple_28: 409772280
+      img_cardPattern_Simple_29: 1158074849
+      img_cardPattern_Simple_3: 1909725841
+      img_cardPattern_Simple_30: 1903605155
+      img_cardPattern_Simple_31: 1988858285
+      img_cardPattern_Simple_32: -592195761
+      img_cardPattern_Simple_33: -1026759813
+      img_cardPattern_Simple_34: -1567552621
+      img_cardPattern_Simple_35: 981059224
+      img_cardPattern_Simple_36: 1516870617
+      img_cardPattern_Simple_37: -598059967
+      img_cardPattern_Simple_38: -184738995
+      img_cardPattern_Simple_39: 1397297248
+      img_cardPattern_Simple_4: -1013629386
+      img_cardPattern_Simple_40: 867339329
+      img_cardPattern_Simple_41: -725403658
+      img_cardPattern_Simple_42: -1570616032
+      img_cardPattern_Simple_43: 181643367
+      img_cardPattern_Simple_44: 1234787819
+      img_cardPattern_Simple_45: 1604436996
+      img_cardPattern_Simple_46: 930839245
+      img_cardPattern_Simple_47: 1213630436
+      img_cardPattern_Simple_48: 1022500504
+      img_cardPattern_Simple_49: -861120451
+      img_cardPattern_Simple_5: -272355321
+      img_cardPattern_Simple_50: -1128601877
+      img_cardPattern_Simple_51: -66977265
+      img_cardPattern_Simple_6: -1141417460
+      img_cardPattern_Simple_7: 1680335541
+      img_cardPattern_Simple_8: 1984241737
+      img_cardPattern_Simple_9: 1598799306
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
