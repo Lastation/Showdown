@@ -31,6 +31,7 @@ public class BlackJackSystem : UdonSharpBehaviour
     {
         if (!players[idx].isPlay) return;
         players[idx].SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "Exit_Table");
+        for (int i = 0; i < players.Length; i++) Set_PlayerName(players[i].displayName, i);
     }
 
     public void Reset_Game()

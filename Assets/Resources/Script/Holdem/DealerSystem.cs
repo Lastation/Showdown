@@ -2,6 +2,7 @@
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Holdem
 {
@@ -132,7 +133,7 @@ namespace Holdem
                     continue;
                 turnIdx = Get_TurnIndex(value + i);
                 return turnIdx;
-            }
+            }   
             return turnIdx;
         }
         public int Get_InGameCount()
@@ -720,6 +721,7 @@ namespace Holdem
         {
             if (!playerSystem[idx].isPlay) return;
             playerSystem[idx].SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "Exit_Table");
+            for (int i = 0; i < playerSystem.Length; i++) dealerUI.Set_PlayerName(playerSystem[i].displayName, i);
         }
         #endregion
         #region Action
@@ -743,7 +745,6 @@ namespace Holdem
                 {
                     Set_PlayerStateWait();
                     playerState[index] = PlayerState.ALLIN;
-                    Set_GameAuto();
                 }
                 else if (value == 0)
                     playerState[index] = PlayerState.Check;
@@ -915,7 +916,6 @@ namespace Holdem
                 hands[i] = -1;
             }
             tableTotalPot -= maxSidePot;
-            Sub_SidePot(maxSidePot);
             KikerCheck();
         }
         #endregion
