@@ -14,6 +14,10 @@ namespace Yamadev.VRCHandMenu
         bool isGlobal = false;
         [SerializeField]
         GameObject targetObject;
+        [SerializeField]
+        bool isRain;
+        [SerializeField]
+        Material matRain;
 
         Image _icon;
         Color _activeColor = new Color(0.0f, 200.0f / 255.0f, 83.0f / 255.0f, 255.0f);
@@ -31,12 +35,18 @@ namespace Yamadev.VRCHandMenu
 
         public void SetTargetActive()
         {
-            targetObject.SetActive(true);
+            if (isRain && matRain != null)
+                matRain.SetFloat("_Stop", 1);
+            else
+                targetObject.SetActive(true);
         }
 
         public void SetTargetInactive()
         {
-            targetObject.SetActive(false);
+            if (isRain && matRain != null)
+                matRain.SetFloat("_Stop", 0);
+            else
+                targetObject.SetActive(false);
         }
 
         public void SetActive()

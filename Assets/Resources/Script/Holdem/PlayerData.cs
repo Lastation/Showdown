@@ -1,6 +1,7 @@
 ﻿using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
+using VRC.Udon.Serialization.OdinSerializer.Utilities;
 
 namespace Holdem
 {
@@ -11,10 +12,26 @@ namespace Holdem
         [SerializeField] Text text_coin;
         [SerializeField] ChipUI chipUI;
         [SerializeField] Text textRebine;
+        [SerializeField] Text textGacha;
+        [SerializeField] Text textRenalty;
 
         int _chip = 0;
         int _coin = 0;
+        int _gacha = 0;
         int _rebine = 0;
+        int _penalty = 0;
+        public int gacha
+        {
+            get => _gacha;
+            set
+            {
+                _gacha = value;
+                if (_gacha > 0)
+                    textGacha.text = $"{_gacha} 개";
+                else
+                    textGacha.text = "10";
+            }
+        }
         public int rebine {
             get => _rebine;
             set
@@ -24,6 +41,18 @@ namespace Holdem
                     textRebine.text = $"{_rebine} 개";
                 else
                     textRebine.text = "20";
+            }
+        }
+        public int penalty
+        {
+            get => _penalty;
+            set
+            {
+                _penalty = value;
+                if (_penalty > 0)
+                    textRenalty.text = $"{_penalty} 개";
+                else
+                    textRenalty.text = "40";
             }
         }
 
@@ -63,6 +92,14 @@ namespace Holdem
             text_chip.text = _chip.ToString();
             text_coin.text = _coin.ToString();
         }
+
+        public void Reset_Chip()
+        {
+            int Reward = Mathf.FloorToInt(chip / 10000);
+            gacha += Reward;
+            chip = 20000;
+        }
+
         public void Rebine()
         {
             if (chip > 200)

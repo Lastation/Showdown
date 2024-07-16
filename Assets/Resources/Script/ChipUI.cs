@@ -1,6 +1,7 @@
 ﻿using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
+using VRC.SDKBase;
 
 [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
 public class ChipUI : UdonSharpBehaviour
@@ -18,16 +19,19 @@ public class ChipUI : UdonSharpBehaviour
 
     public void ApplyText(int chip, int coin)
     {
-        int subChip = chip - prevMoney;
-        int subCoin = coin - prevCoin;
+        if (!Networking.LocalPlayer.IsUserInVR())
+        {
+            int subChip = chip - prevMoney;
+            int subCoin = coin - prevCoin;
 
-        animator.SetTrigger("ShowUI");
-        nowMoney = chip;
-        nowCoin = coin;
-        prevMoney = nowMoney;
-        prevCoin = nowCoin;
+            animator.SetTrigger("ShowUI");
+            nowMoney = chip;
+            nowCoin = coin;
+            prevMoney = nowMoney;
+            prevCoin = nowCoin;
 
-        tmp_chip.text = string.Concat("<b>", prevMoney, "</b> [", (subChip < 0 ? "<color=#FF7B5A>-" : "<color=#FFE223>+"), Mathf.Abs(subChip), "</color>]");
-        tmp_coin.text = string.Concat("<b>", prevCoin, "</b> [", (subCoin < 0 ? "<color=#FF7B5A>-" : "<color=#FFE223>+"), Mathf.Abs(subCoin), "</color>]");
+            tmp_chip.text = string.Concat("<b>", prevMoney, "</b> [", (subChip < 0 ? "<color=#FF7B5A>-" : "<color=#FFE223>+"), Mathf.Abs(subChip), "</color>]");
+            tmp_coin.text = string.Concat("<b>", prevCoin, "</b> [", (subCoin < 0 ? "<color=#FF7B5A>-" : "<color=#FFE223>+"), Mathf.Abs(subCoin), "</color>]");
+        }
     }
 }

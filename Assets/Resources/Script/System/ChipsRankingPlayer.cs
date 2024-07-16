@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Cysharp.Threading.Tasks.Triggers;
+using Newtonsoft.Json.Linq;
 using System;
 using UdonSharp;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace Holdem
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class ChipsRankingPlayer : UdonSharpBehaviour
     {
+        [SerializeField] InstanceData instanceData;
         [SerializeField] Text PlayerRankText = null;
         [SerializeField] Text PlayerNameText = null;
         [SerializeField] Text PlayerChipsText = null;
@@ -56,10 +58,27 @@ namespace Holdem
             set
             {
                 _displayName = value;
+                if (instanceData.DealerCheck(value))
+                    PlayerNameText.color = Color.cyan;
                 PlayerNameText.text = value;
                 Dosync();
             }
         }
+
+        public void ResetChip()
+        {
+            if (!Networking.IsOwner(gameObject)) return;
+            if (_displayName == "") return;
+            playerData.Reset_Chip();
+        }
+
+        public void ResetChipLeft()
+        {
+            chip = 20000;
+            if (_displayName != Networking.LocalPlayer.displayName) return;
+            playerData.Reset_Chip();
+        }
+
         public void ChangeColor(Color color, int index = 99)
         {
             if (PlayerNameText.text == "")
@@ -95,7 +114,6 @@ namespace Holdem
 
         public void SetPlayer(int idx)
         {
-            if (Networking.LocalPlayer.IsOwner(gameObject)) return;
             Networking.SetOwner(Networking.LocalPlayer, gameObject);
             index = idx;
             SyncData();
@@ -114,6 +132,9 @@ namespace Holdem
 
         public override void OnDeserialization()
         {
+            if (instanceData.DealerCheck(displayName))
+                PlayerNameText.color = Color.cyan;
+
             PlayerNameText.text = displayName;
 
             if (displayName != "")

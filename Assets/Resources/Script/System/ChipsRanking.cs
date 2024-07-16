@@ -134,13 +134,27 @@ namespace Holdem
             }
         }
 
+        #region PlayerChipReset
+        public void Set_Reset()
+        {
+            if (!Networking.IsOwner(gameObject)) return;
+
+            instanceData.Set_Chip_Reset();
+            for (int i = 0; i < instanceData.Get_DataLength(); i++)
+            {
+                if (Networking.IsOwner(players[i].gameObject))
+                    players[i].ResetChipLeft();
+                else
+                    players[i].SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "ResetChip");
+            }
+        }
+        #endregion
         public override void OnPlayerJoined(VRCPlayerApi player)
         {
             if (player != Networking.LocalPlayer)
                 return;
             Load_Datas();
         }
-
         public override void OnPlayerLeft(VRCPlayerApi player)
         {
             if (!Networking.IsOwner(instanceData.gameObject))
@@ -149,7 +163,6 @@ namespace Holdem
             if (index == -1) return;
             instanceData.Save_Datas(player.displayName, players[index].chip, players[index].coin);
         }
-
         public void Load_Datas()
         {
             if (isLoaded) return;

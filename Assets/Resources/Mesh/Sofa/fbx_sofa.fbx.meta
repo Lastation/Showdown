@@ -13,12 +13,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CRN.ASOLO 102_Pillows
-    second: {fileID: 2100000, guid: 9c66819e1a69d0b43b57dc13ff95492f, type: 2}
+    second: {fileID: 2100000, guid: ca8feb0dc6f4e9a419d2b0bb6de209af, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CRN.wood1
-    second: {fileID: 2100000, guid: db0cd59dd2a0cfa4d817524cfb2e2417, type: 2}
+    second: {fileID: 2100000, guid: ee7d52a32f0bf984dbce4ccb5574e93d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -28,12 +28,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: kamin_gold_fire
-    second: {fileID: 2100000, guid: fc5a4bad905ebd646beb3dc265059b20, type: 2}
+    second: {fileID: 2100000, guid: b9188f07258edff42bc6632788a77049, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: kamin_gold_kamin_Metall
-    second: {fileID: 2100000, guid: 4dd9adcc170eced46a41bb7db5c92e92, type: 2}
+    second: {fileID: 2100000, guid: 4ccd1c4ad161df444b5fe717cdb7de9b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

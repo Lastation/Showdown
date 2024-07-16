@@ -15,7 +15,7 @@ namespace Yamadev.VRCHandMenu
         VRC_Pickup penObject = null;
 
         Text _tipText;
-        Vector3 _defaultPosition;
+        Vector3 _defaultPosition = new Vector3(0, 10000, 0);
         Quaternion _defaultRotation;
 
         private PositionConstraint clearButtonPositionConstraint;
@@ -23,7 +23,7 @@ namespace Yamadev.VRCHandMenu
 
         void Start()
         {
-            _defaultPosition = penObject.transform.position;
+            _defaultPosition = new Vector3(0, 10000, 0);
             _defaultRotation = penObject.transform.rotation;
             _tipText = transform.Find("Tip/Text").GetComponent<Text>();
 
@@ -60,7 +60,7 @@ namespace Yamadev.VRCHandMenu
 
         public void ResetPen()
         {
-            if (!penObject || penObject.IsHeld) return;
+            if (!penObject) return;
             Networking.SetOwner(Networking.LocalPlayer, gameObject);
             Networking.SetOwner(Networking.LocalPlayer, penObject.gameObject);
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ResetPenPosition));

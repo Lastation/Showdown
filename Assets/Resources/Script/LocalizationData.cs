@@ -76,9 +76,9 @@ namespace Holdem
         [ReadOnly]
         public string[] sVideoPlayer = new string[3]
         {
-        "배경음악",
-        "背景音楽",
-        "background music"
+        "도움말",
+        "コツ",
+        "Help"
         };
         [ReadOnly]
         public string[] sSwitch = new string[3]

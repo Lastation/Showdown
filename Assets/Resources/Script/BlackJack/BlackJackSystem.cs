@@ -9,6 +9,7 @@ using VRC.Udon;
 [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class BlackJackSystem : UdonSharpBehaviour
 {
+    [SerializeField] MainSystem mainSystem;
     [SerializeField] BlackJackPlayer[] players;
     [SerializeField] TextMeshProUGUI[] text_TablePlayerName;
     [SerializeField] CardSystem cardSystem;
@@ -38,7 +39,7 @@ public class BlackJackSystem : UdonSharpBehaviour
     {
         for (int i = 0; i < players.Length; i++)
         {
-            if (players[i].coin >= 20)
+            if (players[i].coin > 20)
                 players[i].SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "Exit_Table");
 
             Set_PlayerName(players[i].displayName, i);
@@ -50,6 +51,7 @@ public class BlackJackSystem : UdonSharpBehaviour
     {
         if (!players[index].isPlay)
             return;
+        mainSystem.playerData.coin += 1;
         players[index].SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "Add_Coin");
     }
     #endregion

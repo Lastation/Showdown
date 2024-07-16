@@ -4,11 +4,11 @@ using VRC.SDKBase;
 
 namespace Holdem
 {
-    public enum TableBlindCheck
+    enum BlindCheck
     {
-        Default = 0,
-        SmallBlind = 1,
-        BigBlind = 2
+        None = 0,
+        SB = 1,
+        BB = 2,
     }
 
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
@@ -31,10 +31,10 @@ namespace Holdem
         [UdonSynced] SE_Table_Type voiceType = SE_Table_Type.Basic;
 
         TableState tableState = TableState.Wait;
-        TableBlindCheck tableBlindCheck = TableBlindCheck.Default;
+        BlindCheck blindCheck = BlindCheck.None;
         bool isTurn = false;
         float fTurnTimer = 0.0f;
-
+      
         #region Sync Function
         public string displayName
         {
@@ -104,7 +104,6 @@ namespace Holdem
             if (!Networking.IsOwner(gameObject)) return;
             mainSystem.playerData.coin += 10;
         }
-
         #region Enter & Exit
         public void Enter_Game()
         {
@@ -156,7 +155,6 @@ namespace Holdem
             DoSync();
         }
         #endregion
-
         #region Voice
         public void Play_Voice(SE_Voice_Index index)
         {
@@ -190,7 +188,6 @@ namespace Holdem
         public void Play_Voice_Allin() => asVoice.PlayOneShot(mainSystem.GetAudioClip(voiceType, SE_Voice_Index.Allin));
         public void Play_Voice_Bet() => asVoice.PlayOneShot(mainSystem.GetAudioClip(voiceType, SE_Voice_Index.Bet));
         #endregion
-
         #region EndGame
         public void Add_EndGamePot()
         {
@@ -242,20 +239,23 @@ namespace Holdem
             DoSync();
         }
         #endregion
-
         #region Turn
-        public void Set_PayBB()
-        {
-            if (!Networking.IsOwner(gameObject)) return;
-            betSize = 200;
-            tableBlindCheck = TableBlindCheck.BigBlind;
-            DoSync();
-        }
         public void Set_PaySB()
         {
             if (!Networking.IsOwner(gameObject)) return;
             betSize = 100;
-            tableBlindCheck = TableBlindCheck.SmallBlind;
+            mainSystem.playerData.chip -= 100;
+            chip = mainSystem.playerData.chip;
+            blindCheck = BlindCheck.SB;
+            DoSync();
+        }
+        public void Set_PayBB()
+        {
+            if (!Networking.IsOwner(gameObject)) return;
+            betSize = 200;
+            mainSystem.playerData.chip -= 200;
+            chip = mainSystem.playerData.chip; 
+            blindCheck = BlindCheck.BB;
             DoSync();
         }
         public void Set_Turn()
@@ -266,22 +266,21 @@ namespace Holdem
             {
                 tableState = dealerSystem.tableState;
                 betSize = 0;
-            }
 
-            switch (tableBlindCheck)
-            {
-                case TableBlindCheck.SmallBlind:
-                    betSize = 100;
-                    mainSystem.playerData.chip -= 100;
-                    chip = mainSystem.playerData.chip;
-                    tableBlindCheck = TableBlindCheck.Default;
-                    break;
-                case TableBlindCheck.BigBlind:
-                    betSize = 200;
-                    mainSystem.playerData.chip -= 200;
-                    chip = mainSystem.playerData.chip;
-                    tableBlindCheck = TableBlindCheck.Default;
-                    break;
+                if (tableState == TableState.Flop)
+                {
+                    switch (blindCheck)
+                    {
+                        case BlindCheck.SB:
+                            betSize = 100;
+                            blindCheck = BlindCheck.None;
+                            break;
+                        case BlindCheck.BB:
+                            betSize = 200;
+                            blindCheck = BlindCheck.None;
+                            break;
+                    }
+                }
             }
 
             isTurn = true;
@@ -339,6 +338,7 @@ namespace Holdem
             if (actionSize == -1) Play_Voice(SE_Voice_Index.Fold);
             else if (actionSize == 0) Play_Voice(SE_Voice_Index.Check);
             else if (mainSystem.playerData.chip == 0) Play_Voice(SE_Voice_Index.Allin);
+            else if (dealerSystem.tableCallSize == 0 && actionSize > 0) Play_Voice(SE_Voice_Index.Bet);
             else if (actionSize == dealerSystem.tableCallSize) Play_Voice(SE_Voice_Index.Call);
             else if (actionSize > dealerSystem.tableCallSize) Play_Voice(SE_Voice_Index.Raise);
 
@@ -361,9 +361,15 @@ namespace Holdem
             DoSync();
         }
         #endregion
-
         #region Raise
-        public void Add_RaiseChipSize_Reset() => Set_RaiseChipSize((dealerSystem.tableCallSize == 0 ? 200 : dealerSystem.tableCallSize) * 1, false);
+        public void Add_RaiseChipSize_Reset()
+        {
+            int size;
+            if (dealerSystem.tableCallSize <= 100) size = 400 - dealerSystem.tableCallSize;
+            else if (_betSize == 100) size = 300;
+            else size = dealerSystem.tableCallSize;
+            Set_RaiseChipSize(size, false);
+        }
         public void Add_RaiseChipSize_3x() => Set_RaiseChipSize((dealerSystem.tableCallSize == 0 ? 200 : dealerSystem.tableCallSize) * 2, false);
         public void Add_RaiseChipSize_4x() => Set_RaiseChipSize((dealerSystem.tableCallSize == 0 ? 200 : dealerSystem.tableCallSize) * 3, false);
         public void Add_RaiseChipSize_100() => Set_RaiseChipSize(100, true);
@@ -391,7 +397,6 @@ namespace Holdem
             DoSync();
         }
         #endregion
-
         #region Networking
         public void DoSync()
         {

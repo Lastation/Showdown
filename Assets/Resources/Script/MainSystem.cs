@@ -71,6 +71,11 @@ namespace Holdem
                     languageToggle[0].isOn = true;
                     break;
             }
+
+            if (Networking.LocalPlayer.IsUserInVR())
+                Set_Rain_OFF();
+            else
+                Set_Rain_ON();
         }
         #region Localization
         [SerializeField] LocalizationData localizationData;
@@ -336,6 +341,7 @@ namespace Holdem
         {
             matCardPattern[0].SetColor("_EmissionColor", colorCard[iPatternIndex] * sliderCardEmission.value);
             matCardPattern[1].SetColor("_Color", colorCard[iPatternIndex] * sliderCardEmission.value);
+            matCardPattern[2].SetColor("_EmissionColor", colorCard[iPatternIndex] * sliderCardEmission.value);
         }
         public Sprite Get_CardPattern(int idx) => imgPattern[idx];
         #endregion
@@ -358,6 +364,30 @@ namespace Holdem
             if (playerUI == null) return;
             playerUI.Set_UI_Height(true);
         }
+
+
+        [SerializeField] Material mat_rain;
+        public void Set_Rain_ON() => mat_rain.SetFloat("_Stop", 1);
+        public void Set_Rain_OFF() =>  mat_rain.SetFloat("_Stop", 0);
         #endregion
+
+        [SerializeField] AudioClip[] ac_bgm;
+        [SerializeField] AudioSource as_bgm;
+        int bgmIndex = 0;
+
+        public void FixedUpdate()
+        {
+            Update_BGM();
+        }
+
+        public void Update_BGM()
+        {
+            if (!as_bgm.isPlaying)
+            {
+                as_bgm.clip = ac_bgm[bgmIndex];
+                as_bgm.Play();
+                bgmIndex = bgmIndex == ac_bgm.Length - 1 ? 0 : bgmIndex + 1;
+            }
+        }
     }
 }

@@ -41,6 +41,7 @@ namespace Holdem
         public void Set_Rotation()
         {
             Vector3 relativePos = Networking.LocalPlayer.GetPosition() - objUIGame.transform.position;
+            relativePos.y = 1.0f;
             Quaternion rotation = Quaternion.LookRotation(relativePos);
             objUIGame.transform.rotation = rotation;
         }
@@ -85,6 +86,11 @@ namespace Holdem
                 textState.color = Color.white;
 
             Set_Player_Spectator();
+        }
+
+        public void UpdateHandRank()
+        {
+            textState.text = mainSystem.Get_HandRank(handRank);
         }
         public void Set_BetSize(int size)
         {

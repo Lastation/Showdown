@@ -1,8 +1,8 @@
-﻿using TMPro;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Holdem
 {
@@ -89,25 +89,33 @@ namespace Holdem
         [SerializeField] DealerUI dealerUI;
         #endregion
 
-        bool[] isSidePotAdd = new bool[9];
+        int[] playerSideSize = new int[9];
         int turnIdx, dealerIdx = 0;
 
         public DealerUI getDealerUI => dealerUI;
 
-        public void Add_SidePot(int value)
+        public void Add_SidePot(int value, int index)
         {
             for (int i = 0; i < tableSidePot.Length; i++)
             {
-                if (handRank[i] == 0) continue;
-                if (!isSidePotAdd[i]) continue;
-
+                if (!isInGame(i)) continue;
                 int sideSize = value;
-                if (playerSystem[i].chip < value && playerBetSize[i] < value)
-                    sideSize = Mathf.Max(playerSystem[i].chip, playerBetSize[i]);
 
+                if (index != i)
+                {
+                    if (playerSystem[i].chip + playerSideSize[i] - playerSideSize[index] < 0)
+                        sideSize = 0;
+                    else if (playerSystem[i].chip + playerSideSize[i] - (playerSideSize[index] + value) < 0)
+                        sideSize = playerSystem[i].chip + playerSideSize[i] - playerSideSize[index];
+                    else
+                        sideSize = value;
+                }
                 tableSidePot[i] += sideSize;
                 if (tableSidePot[i] < 0) tableSidePot[i] = 0;
             }
+
+            if (index != -1)
+                playerSideSize[index] += value;
         }
         public void Sub_SidePot(int value)
         {
@@ -119,7 +127,6 @@ namespace Holdem
                 if (tableSidePot[i] < 0) tableSidePot[i] = 0;
             }
         }
-
         #region Sync
         public int getTablePot(int index) => tableSidePot[index];
         public bool isInGame(int index) => !(playerState[index] == PlayerState.OutOfGame || playerState[index] == PlayerState.Fold);
@@ -205,13 +212,14 @@ namespace Holdem
             for (int i = 0; i < handRank.Length; i++)
                 handRank[i] = 0;
         }
-
         #region State Setting
         public void Set_TableState(TableState state)
         {
             _tableState = state;
             for (int i = 0; i < playerBetSize.Length; i++)
+            {
                 playerBetSize[i] = 0;
+            }
             DoSync();
         }
         public void Set_TurnPosition(int idx)
@@ -236,7 +244,6 @@ namespace Holdem
             DoSync();
         }
         #endregion
-
         #region Audio
 
         public void Play_AudioClip_Draw() => audioSource.PlayOneShot(mainSystem.GetAudioClip(SE_Voice_Index.Draw));
@@ -251,7 +258,6 @@ namespace Holdem
             }
         }
         #endregion
-
         #region Game
         public void Set_GameReset()
         {
@@ -304,9 +310,9 @@ namespace Holdem
                 else playerState[i] = PlayerState.OutOfGame;
                 playerBetSize[i] = 0;
                 tableSidePot[i] = 0;
+                playerSideSize[i] = 0;
                 hands[i] = 0;
                 handRank[i] = 0;
-                isSidePotAdd[i] = true;
                 playerSystem[i].SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "Action_Reset");
             }
 
@@ -325,9 +331,9 @@ namespace Holdem
 
                         if (!isInGame(i))
                             continue;
-                        cardSystem.Set_CardPosition(i, playerSystem[i].tfCardPos[0], true);
+                        cardSystem.Set_CardPosition(i, playerSystem[i].tfCardPos[0]);
                         table_Cards[i] = cardSystem.Get_CardIndex(i);
-                        cardSystem.Set_CardPosition(i + 9, playerSystem[i].tfCardPos[1], true);
+                        cardSystem.Set_CardPosition(i + 9, playerSystem[i].tfCardPos[1]);
                         table_Cards[i + 9] = cardSystem.Get_CardIndex(i + 9);
                         dealerUI.Set_PlayerName(playerSystem[i].displayName, i);
                     }
@@ -340,17 +346,19 @@ namespace Holdem
 
                     int turn = Get_TurnSettingIndex(turnIdx + 1);
                     playerSystem[turn].SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "Set_PaySB");
-                    playerBetSize[turn] = 200;
+                    playerBetSize[turn] = 100;
+                    Add_SidePot(100, turn);
                     turn = Get_TurnSettingIndex(turnIdx + 1);
                     playerSystem[turn].SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "Set_PayBB");
-                    playerBetSize[turn] = 100;
+                    playerBetSize[turn] = 200;
+                    Add_SidePot(200, turn);
                     tableTotalPot += 300;
                     Set_TurnIndex(turn + 1);
                     break;
                 case TableState.Flop:
                     for (int i = 0; i < 3; i++)
                     {
-                        cardSystem.Set_CardPosition(i + 18, (CardPosition)(i + 1), false);
+                        cardSystem.Set_CardPosition(i + 18, (CardPosition)(i + 1));
                         table_Cards[i + 18] = cardSystem.Get_CardIndex(i + 18);
                     }
                     Set_TableState(TableState.Turn);
@@ -358,14 +366,14 @@ namespace Holdem
                     Play_AudioClip(SE_Voice_Index.Draw);
                     break;
                 case TableState.Turn:
-                    cardSystem.Set_CardPosition(21, CardPosition.Turn, false);
+                    cardSystem.Set_CardPosition(21, CardPosition.Turn);
                     table_Cards[21] = cardSystem.Get_CardIndex(21);
                     Set_TableState(TableState.River);
                     Set_HandRank();
                     Play_AudioClip(SE_Voice_Index.Draw);
                     break;
                 case TableState.River:
-                    cardSystem.Set_CardPosition(22, CardPosition.River, false);
+                    cardSystem.Set_CardPosition(22, CardPosition.River);
                     table_Cards[22] = cardSystem.Get_CardIndex(22);
                     Set_TableState(TableState.Open);
                     Set_HandRank();
@@ -378,7 +386,6 @@ namespace Holdem
                         {
                             if (isInGame(i % 9))
                             {
-                                cardSystem.Set_Blind(i, false);
                                 cardSystem.Set_CardRotation(i);
                             }
                         }
@@ -730,12 +737,6 @@ namespace Holdem
             if (value == -1)
             {
                 playerState[index] = PlayerState.Fold;
-                if (isShowdown())
-                {
-                    Set_TableState(TableState.Open);
-                    Set_GameAuto();
-                    return;
-                }
                 Set_NextTurn();
                 return;
             }
@@ -755,11 +756,23 @@ namespace Holdem
                 }
                 else playerState[index] = PlayerState.Call;
 
-                tableTotalPot += value - playerBetSize[index];
-
+                int betSize = playerBetSize[index];
                 if (tableCallSize < value) tableCallSize = value;
-                playerBetSize[index] = value;
-                Add_SidePot(value);
+
+                if (playerState[index] == PlayerState.ALLIN) playerBetSize[index] = value + betSize;
+                else playerBetSize[index] = value;
+
+                if (playerState[index] == PlayerState.ALLIN)
+                {
+                    tableTotalPot += value;
+                    Add_SidePot(value, index);
+                }
+                else
+                {
+                    tableTotalPot += value - betSize;
+                    Add_SidePot(value - betSize, index);
+                }
+
                 Set_NextTurn();
             }
         }
@@ -793,9 +806,6 @@ namespace Holdem
             }
             if (isNextStep)
             {
-                for (int i = 0; i < playerState.Length; i++)
-                    if (playerState[i] == PlayerState.ALLIN)
-                        isSidePotAdd[i] = false;
                 _tableCallSize = 0;
                 Set_PlayerStateWait();
                 Set_GameAuto();
@@ -820,8 +830,7 @@ namespace Holdem
             return $"{mainSystem.sHandSuit(suit)}{mainSystem.sHandNumber(number)}";
         }
         public void Set_GameEnd()
-        {
-            DoSync();
+        { 
             for (int i = 0; i < playerSystem.Length; i++)
             {
                 if (!isInGame(i))
@@ -829,6 +838,8 @@ namespace Holdem
                 else
                     hands[i] = (int)p_handRank[i] * 10000 + (int)p_handNumber[i] * 100 + kiker[i];
             }
+            Set_HandRank();
+            DoSync();
             KikerCheck();
         }
 
@@ -901,7 +912,7 @@ namespace Holdem
             for (int i = 0; i < playerSystem.Length; i++)
             {
                 if (highHand != hands[i]) continue;
-                if (hands[i] == -1) continue;
+                if (hands[i] == -1 || playerState[i] == PlayerState.Fold) continue;
 
                 if (minSidePot > tableSidePot[i]) minSidePot = tableSidePot[i];
                 if (maxSidePot < tableSidePot[i]) maxSidePot = tableSidePot[i];
@@ -911,11 +922,12 @@ namespace Holdem
 
             for (int i = 0; i < playerSystem.Length; i++)
             {
-                if (hands[i] == -1) continue;
-                tableSidePot[i] = tableSidePot[i] - maxSidePot + minSidePot / chapCount;
+                if (hands[i] == -1 || playerState[i] == PlayerState.Fold) continue;
+                tableSidePot[i] = tableSidePot[i] - (minSidePot / chapCount);
                 hands[i] = -1;
             }
             tableTotalPot -= maxSidePot;
+            Sub_SidePot(maxSidePot);
             KikerCheck();
         }
         #endregion

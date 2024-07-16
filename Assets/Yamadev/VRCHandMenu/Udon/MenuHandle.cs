@@ -40,6 +40,8 @@ namespace Yamadev.VRCHandMenu
 
         [SerializeField]
         GameObject[] DealerOption;
+        [SerializeField]
+        GameObject[] DealerOFF;
 
         bool _isInitilized = false;
         bool _isVR = false;
@@ -80,6 +82,13 @@ namespace Yamadev.VRCHandMenu
                 if (!instanceData.DealerCheck(Networking.LocalPlayer.displayName))
                     continue;
                 DealerOption[i].SetActive(true);
+            }
+
+            for (int i = 0; i < DealerOFF.Length; i++)
+            {
+                if (!instanceData.DealerCheck(Networking.LocalPlayer.displayName))
+                    continue;
+                DealerOFF[i].SetActive(false);
             }
 
             setMenuActive(false);

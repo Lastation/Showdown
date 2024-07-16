@@ -69,12 +69,10 @@ public class BlackJackPlayer : UdonSharpBehaviour
         if (!Networking.IsOwner(gameObject)) return;
         if (playerID == 0) return;
 
-        mainSystem.playerData.coin += 1;
+        mainSystem.playerData.coin += 5;
         _coin = mainSystem.playerData.coin;
-
         if (_coin > 20)
             Exit_Table();
-
         DoSync();
     }
 

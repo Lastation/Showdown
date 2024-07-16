@@ -1920,7 +1920,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468226375881951598}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.010000001, y: 0.01, z: 0.010000001}
   m_ConstrainProportionsScale: 0
@@ -2024,7 +2024,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 40
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
@@ -2545,8 +2545,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.75}
-  m_SizeDelta: {x: 0, y: -1.5}
+  m_AnchoredPosition: {x: 0, y: 1.5}
+  m_SizeDelta: {x: 0, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &218393543369042323
 CanvasRenderer:
@@ -2817,7 +2817,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 4}
+  m_SizeDelta: {x: 20, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3199742089193701994
 CanvasRenderer:
@@ -3041,11 +3041,11 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
-  MinDistance: 9.9009905
+  DopplerLevel: 0
+  MinDistance: 8
   MaxDistance: 10
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -3108,7 +3108,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -3426,8 +3426,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 20, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 4}
+  m_AnchoredPosition: {x: 0, y: 0.01}
+  m_SizeDelta: {x: 20, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2293611606018281857
 Canvas:
@@ -3524,7 +3524,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 20, y: 4, z: 0.3}
+  m_Size: {x: 20, y: 6, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3978458524432859543
 GameObject:
@@ -3719,7 +3719,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4612697137862206342}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.010000001, y: 0.01, z: 0.010000001}
   m_ConstrainProportionsScale: 0
@@ -3821,7 +3821,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 40
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
@@ -7637,8 +7637,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1.25}
-  m_SizeDelta: {x: 0, y: -2.5}
+  m_AnchoredPosition: {x: 0, y: -1.5}
+  m_SizeDelta: {x: 0, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1664798995176397499
 CanvasRenderer:
@@ -7696,7 +7696,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
+  m_fontSize: 2.5
   m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 0
