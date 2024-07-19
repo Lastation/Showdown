@@ -19,26 +19,18 @@ namespace Yamadev.VRCHandMenu
         [SerializeField]
         Material matRain;
 
+        [SerializeField]
         Image _icon;
         Color _activeColor = new Color(0.0f, 200.0f / 255.0f, 83.0f / 255.0f, 255.0f);
         Color _inactiveColor = new Color(197.0f / 255.0f, 17.0f / 255.0f, 98.0f / 255.0f, 255.0f);
-        void Start()
-        {
-            _icon = transform.Find("Title/Image").GetComponent<Image>();
-        }
-
-        void Update()
-        {
-            if (targetObject.activeSelf) _icon.color = _activeColor;
-            else _icon.color = _inactiveColor;
-        }
 
         public void SetTargetActive()
         {
             if (isRain && matRain != null)
                 matRain.SetFloat("_Stop", 1);
             else
-                targetObject.SetActive(true);
+                targetObject.SetActive(true); 
+            _icon.color = _activeColor;
         }
 
         public void SetTargetInactive()
@@ -47,6 +39,7 @@ namespace Yamadev.VRCHandMenu
                 matRain.SetFloat("_Stop", 0);
             else
                 targetObject.SetActive(false);
+            _icon.color = _inactiveColor;
         }
 
         public void SetActive()

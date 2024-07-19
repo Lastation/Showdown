@@ -12,31 +12,34 @@ namespace Holdem
         [SerializeField] Text text_coin;
         [SerializeField] ChipUI chipUI;
         [SerializeField] Text textRebine;
-        [SerializeField] Text textGacha;
-        [SerializeField] Text textRenalty;
+        [SerializeField] Text[] textGacha;
+        [SerializeField] Text[] textGacha10;
+        [SerializeField] Text[] textRenalty;
 
         int _chip = 0;
         int _coin = 0;
         int _gacha = 0;
         int _rebine = 0;
         int _penalty = 0;
+
         public int gacha
         {
             get => _gacha;
             set
             {
                 _gacha = value;
-                if (_gacha > 0)
-                    textGacha.text = $"{_gacha} 개";
-                else
-                    textGacha.text = "10";
+
+                for (int i = 0; i < textGacha.Length; i++)
+                    textGacha[i].text = _gacha > 0 ? $"티켓 1장" : "10 Coin";
+                for (int i = 0; i < textGacha10.Length; i++)
+                    textGacha10[i].text = _gacha > 0 ? $"티켓 {_gacha}장" : "100 Coin";
             }
         }
         public int rebine {
             get => _rebine;
             set
             {
-                _rebine = value;
+                _rebine = value; 
                 if (_rebine > 0)
                     textRebine.text = $"{_rebine} 개";
                 else
@@ -49,10 +52,9 @@ namespace Holdem
             set
             {
                 _penalty = value;
-                if (_penalty > 0)
-                    textRenalty.text = $"{_penalty} 개";
-                else
-                    textRenalty.text = "40";
+
+                for (int i = 0; i < textRenalty.Length; i++)
+                    textRenalty[i].text = _penalty > 0 ? $"티켓 {_penalty}장" : "40 Coin";
             }
         }
 
@@ -95,26 +97,10 @@ namespace Holdem
 
         public void Reset_Chip()
         {
-            int Reward = Mathf.FloorToInt(chip / 10000);
+            int Reward = Mathf.Min(Mathf.FloorToInt(chip / 10000), 20);
+
             gacha += Reward;
             chip = 20000;
-        }
-
-        public void Rebine()
-        {
-            if (chip > 200)
-                return;
-
-            if (rebine > 0)
-            {
-                rebine -= 1;
-                chip = 20000;
-            }
-            if (coin >= 20)
-            {
-                coin -= 20;
-                chip = 20000;
-            }
         }
     }
 }

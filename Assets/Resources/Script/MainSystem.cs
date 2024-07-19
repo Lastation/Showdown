@@ -321,6 +321,7 @@ namespace Holdem
 
         #region Card Sprite
         [SerializeField] Sprite[] imgPattern;
+        [SerializeField] Sprite[] imgPattern_BlackJack;
         [SerializeField] Color[] colorCard;
         [SerializeField] Material[] matCardPattern;
         [SerializeField] Slider sliderCardEmission;
@@ -344,6 +345,7 @@ namespace Holdem
             matCardPattern[2].SetColor("_EmissionColor", colorCard[iPatternIndex] * sliderCardEmission.value);
         }
         public Sprite Get_CardPattern(int idx) => imgPattern[idx];
+        public Sprite Get_CardPattern2(int idx) => imgPattern_BlackJack[idx];
         #endregion
 
         #region PlayerConfig

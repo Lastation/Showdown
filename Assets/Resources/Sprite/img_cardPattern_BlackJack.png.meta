@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,24 +37,24 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 5000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -95,18 +95,1162 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cea99fc3bd175848a151808ad70f348
+      internalID: -893758298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_1
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3423d33d9c626b7419dd67306208ffdb
+      internalID: -1432102979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_2
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4a82c1d214ca8f49b1325477be0b87f
+      internalID: 1508089507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_3
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3f9f5027a6ff994386ce546d4ac2614
+      internalID: 429339890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_4
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41f77ae764649fd43a097f0751d483a0
+      internalID: -820823760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_5
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fd1dd971e9c0584a81d5a83c5806710
+      internalID: -98598086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_6
+      rect:
+        serializedVersion: 2
+        x: 2148
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7b9b2eeca65c6242924b66aca37f796
+      internalID: 1379453581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_7
+      rect:
+        serializedVersion: 2
+        x: 2506
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32426fdfb6e389349a047b13d1490be1
+      internalID: -288163060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_8
+      rect:
+        serializedVersion: 2
+        x: 2864
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abbc0c6e871b91842b8b24c7ed23147c
+      internalID: 1872716206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_9
+      rect:
+        serializedVersion: 2
+        x: 3222
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ee45637c4dba8b4aa4d74e90af65f7b
+      internalID: 360121150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_10
+      rect:
+        serializedVersion: 2
+        x: 3580
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4854e31efdd7373429a1f483db0e18f5
+      internalID: -1504484252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_11
+      rect:
+        serializedVersion: 2
+        x: 3938
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d3c24ff8c21d7b4ea20786ce7b7612a
+      internalID: -132830322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_12
+      rect:
+        serializedVersion: 2
+        x: 4296
+        y: 1629
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8cf7fb9583733b45bc3c9cbcc850f7c
+      internalID: 1252279431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4386c171a948a8c458e692f359996336
+      internalID: 812232530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_14
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 040c0c9391a3b39409bea1ca673d1ff6
+      internalID: 389343335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_15
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b1debafeebb5874bb5648532786c789
+      internalID: -1394088018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_16
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b7b6792237b9874e92dd17dc0b59ae4
+      internalID: 85857154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_17
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160b6a8a296664d4abc7e12da68e429f
+      internalID: -1315271969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_18
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d5d15bf6279a084da41427c9ac6ea1a
+      internalID: -751641085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_19
+      rect:
+        serializedVersion: 2
+        x: 2148
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed2b0563503a1934aa1f3975e8a91649
+      internalID: -2064194841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_20
+      rect:
+        serializedVersion: 2
+        x: 2506
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a775e6179fb08ec48816456e5a2f402e
+      internalID: 43039934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_21
+      rect:
+        serializedVersion: 2
+        x: 2864
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9018d359a328264daed5d9f83d93e31
+      internalID: 295244932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_22
+      rect:
+        serializedVersion: 2
+        x: 3222
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa120fec2988284eb7a3b9e5252f0e8
+      internalID: -1366389104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_23
+      rect:
+        serializedVersion: 2
+        x: 3580
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ad99528c8275504fa3a2e40eaacf540
+      internalID: -1502686900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_24
+      rect:
+        serializedVersion: 2
+        x: 3938
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32818056a129b9a4c987f755c416c044
+      internalID: 625390253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_25
+      rect:
+        serializedVersion: 2
+        x: 4296
+        y: 1086
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce2ecabb2a13bd3499b5968bec6be98f
+      internalID: 1936490909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d3eae157f80ead4bb464579d88bacc8
+      internalID: 1142936240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_27
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83bb010b8f5b7bf4db21f1f975ce3e66
+      internalID: 1867628462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_28
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e15eb490cf82a3438f5afdd8ac0ebf0
+      internalID: 1251862078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_29
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f10eb8354cfefc24185c5667bc11bc82
+      internalID: 283294249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_30
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 314dc2762ce97e244a90fbceae7dea33
+      internalID: -1662784133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_31
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37d1098a87af5784fac9e8adb8de92e9
+      internalID: 1233319767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_32
+      rect:
+        serializedVersion: 2
+        x: 2148
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04520829835245641b48c7e850e4ca66
+      internalID: 698680080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_33
+      rect:
+        serializedVersion: 2
+        x: 2506
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a187ee52f5829f43a605b2e39e442ef
+      internalID: 854029434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_34
+      rect:
+        serializedVersion: 2
+        x: 2864
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60edf7e772f2f3e43b6d070bf98449bb
+      internalID: 803449521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_35
+      rect:
+        serializedVersion: 2
+        x: 3222
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e2f5848e88ec084ba679aef9e7ab07c
+      internalID: -1001360965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_36
+      rect:
+        serializedVersion: 2
+        x: 3580
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1f8e9503120ad4b9cd033d8a66e3bd
+      internalID: 1636770606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_37
+      rect:
+        serializedVersion: 2
+        x: 3938
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68a6bd8a54e44a4aae4b63914227f80
+      internalID: -552308066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_38
+      rect:
+        serializedVersion: 2
+        x: 4296
+        y: 543
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d253c913f683d45855f3148047bf93
+      internalID: 263727127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e106aaa5c1a9a71438c47dd18ee7ad48
+      internalID: -356328075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_40
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07cf18ed66955454c93743d8bd0190fd
+      internalID: -1851650431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_41
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c03d24bfb41826e4aa0e98be1b12ad9c
+      internalID: 1497964028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_42
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a4fe7201b37a1e418044593231f508b
+      internalID: -183910443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_43
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45fdd99e0a879d0459192a4fc503f03a
+      internalID: 1948135633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_44
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bce59765d7d30441b00156ed069c3dd
+      internalID: 738634571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_45
+      rect:
+        serializedVersion: 2
+        x: 2148
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e277a87df529d94183742c0322064fe
+      internalID: -1914561123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_46
+      rect:
+        serializedVersion: 2
+        x: 2506
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54dac77f045a1734db9aa61c06cc5086
+      internalID: -249087536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_47
+      rect:
+        serializedVersion: 2
+        x: 2864
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bec805d87df36ed4e92bf2665f212bfe
+      internalID: 1812322299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_48
+      rect:
+        serializedVersion: 2
+        x: 3222
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02696288e3b7247428f659be12b3b53b
+      internalID: -654839403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_49
+      rect:
+        serializedVersion: 2
+        x: 3580
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 785e8b925fad63449b67f0ce86c8c803
+      internalID: 1801043787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_50
+      rect:
+        serializedVersion: 2
+        x: 3938
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b54209923904f4d8ee7c2604d0013a
+      internalID: -258115891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: img_cardPattern_BlackJack_51
+      rect:
+        serializedVersion: 2
+        x: 4296
+        y: 0
+        width: 358
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5bb591f40c4e245ae0c4d17bcfde3c
+      internalID: -1645112104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      img_cardPattern_BlackJack_0: -893758298
+      img_cardPattern_BlackJack_1: -1432102979
+      img_cardPattern_BlackJack_10: -1504484252
+      img_cardPattern_BlackJack_11: -132830322
+      img_cardPattern_BlackJack_12: 1252279431
+      img_cardPattern_BlackJack_13: 812232530
+      img_cardPattern_BlackJack_14: 389343335
+      img_cardPattern_BlackJack_15: -1394088018
+      img_cardPattern_BlackJack_16: 85857154
+      img_cardPattern_BlackJack_17: -1315271969
+      img_cardPattern_BlackJack_18: -751641085
+      img_cardPattern_BlackJack_19: -2064194841
+      img_cardPattern_BlackJack_2: 1508089507
+      img_cardPattern_BlackJack_20: 43039934
+      img_cardPattern_BlackJack_21: 295244932
+      img_cardPattern_BlackJack_22: -1366389104
+      img_cardPattern_BlackJack_23: -1502686900
+      img_cardPattern_BlackJack_24: 625390253
+      img_cardPattern_BlackJack_25: 1936490909
+      img_cardPattern_BlackJack_26: 1142936240
+      img_cardPattern_BlackJack_27: 1867628462
+      img_cardPattern_BlackJack_28: 1251862078
+      img_cardPattern_BlackJack_29: 283294249
+      img_cardPattern_BlackJack_3: 429339890
+      img_cardPattern_BlackJack_30: -1662784133
+      img_cardPattern_BlackJack_31: 1233319767
+      img_cardPattern_BlackJack_32: 698680080
+      img_cardPattern_BlackJack_33: 854029434
+      img_cardPattern_BlackJack_34: 803449521
+      img_cardPattern_BlackJack_35: -1001360965
+      img_cardPattern_BlackJack_36: 1636770606
+      img_cardPattern_BlackJack_37: -552308066
+      img_cardPattern_BlackJack_38: 263727127
+      img_cardPattern_BlackJack_39: -356328075
+      img_cardPattern_BlackJack_4: -820823760
+      img_cardPattern_BlackJack_40: -1851650431
+      img_cardPattern_BlackJack_41: 1497964028
+      img_cardPattern_BlackJack_42: -183910443
+      img_cardPattern_BlackJack_43: 1948135633
+      img_cardPattern_BlackJack_44: 738634571
+      img_cardPattern_BlackJack_45: -1914561123
+      img_cardPattern_BlackJack_46: -249087536
+      img_cardPattern_BlackJack_47: 1812322299
+      img_cardPattern_BlackJack_48: -654839403
+      img_cardPattern_BlackJack_49: 1801043787
+      img_cardPattern_BlackJack_5: -98598086
+      img_cardPattern_BlackJack_50: -258115891
+      img_cardPattern_BlackJack_51: -1645112104
+      img_cardPattern_BlackJack_6: 1379453581
+      img_cardPattern_BlackJack_7: -288163060
+      img_cardPattern_BlackJack_8: 1872716206
+      img_cardPattern_BlackJack_9: 360121150
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

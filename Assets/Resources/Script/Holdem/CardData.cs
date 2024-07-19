@@ -6,6 +6,12 @@ using VRC.Udon.Common;
 
 namespace Holdem
 {
+    public enum TCardtype : int
+    {
+        normal = 0,
+        blackjack = 1,
+    }
+
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class CardData : UdonSharpBehaviour
     {
@@ -13,15 +19,29 @@ namespace Holdem
         [SerializeField] SpriteRenderer sr_pattern;
         [SerializeField] MainSystem mainSystem;
         [UdonSynced] int i_cardIndex = 0;
+        [UdonSynced] TCardtype cardtype = TCardtype.normal;
 
         public void Start()
         {
             Set_Pickupable(false);
         }
-        public void Set_Card_Pattern() => sr_pattern.sprite = mainSystem.Get_CardPattern(i_cardIndex);
-        public void Set_Card_Index(int index)
+        public void Set_Card_Pattern()
+        {
+            switch (cardtype)
+            {
+                case TCardtype.normal:
+                    sr_pattern.sprite = mainSystem.Get_CardPattern(i_cardIndex);
+                    break;
+                case TCardtype.blackjack:
+                    sr_pattern.sprite = mainSystem.Get_CardPattern2(i_cardIndex);
+                    break;
+            }
+
+        }
+        public void Set_Card_Index(int index, TCardtype cardtype)
         {
             i_cardIndex = index;
+            this.cardtype = cardtype;
             Dosync();
         }
 

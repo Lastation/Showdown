@@ -391,6 +391,9 @@ namespace Holdem
                         }
                         Set_HandRank();
                     }
+                    else
+                        Reset_HandRank();
+
                     Set_TableState(TableState.Wait);
                     obj_turnArrow.transform.position = transform.position + Vector3.down;
                     Set_GameEnd();
@@ -737,6 +740,13 @@ namespace Holdem
             if (value == -1)
             {
                 playerState[index] = PlayerState.Fold;
+
+                if (isShowdown())
+                {
+                    while (tableState != TableState.Wait)
+                        Set_GameAuto();
+                    return;
+                }
                 Set_NextTurn();
                 return;
             }
@@ -838,8 +848,6 @@ namespace Holdem
                 else
                     hands[i] = (int)p_handRank[i] * 10000 + (int)p_handNumber[i] * 100 + kiker[i];
             }
-            Set_HandRank();
-            DoSync();
             KikerCheck();
         }
 
@@ -944,7 +952,7 @@ namespace Holdem
             Update_PlayerUI();
             Update_PlayerReset();
             dealerUI.Set_TableState(9 - Get_PlayerCount(), tableState != TableState.Wait);
-            dealerUI.Set_TablePot(tableTotalPot);
+            dealerUI.Set_TablePot(tableTotalPot < 0 ? 0 : tableTotalPot);
             dealerUI.Set_Table_PlayerPot(tableSidePot);
         }
         public void Update_PlayerUI()

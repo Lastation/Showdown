@@ -15,15 +15,17 @@ namespace Holdem
         [SerializeField] PlayerData playerData;
         [SerializeField] Text textGachaOwner, textGachaInfo;
         [SerializeField] Text textPenaltyOwner, textPenaltyInfo;
-        [SerializeField] Text textChamingOwner, textClothOwner;
+
         [UdonSynced] string sGachaResult = "";
         [UdonSynced] string sGachaOwner = "";
 
         [UdonSynced] string sPenaltyResult = "";
         [UdonSynced] string sPenaltyOwner = "";
 
-        [UdonSynced] string sCharmingOwner = "";
-        [UdonSynced] string sClothOwner = "";
+        [SerializeField] GameObject obj_shop;
+        [SerializeField] GameObject obj_result;
+
+        [UdonSynced] bool isOpen = false;
 
         int[] percent_Gacha = new int[7] { 5000, 2500, 1000, 500, 500, 470, 30 };
         int[] percent_Penalty = new int[10] { 5500, 1500, 800, 400, 800, 400, 200, 100, 200, 100 };
@@ -32,77 +34,92 @@ namespace Holdem
         public void Purchase_Gacha()
         {
             if (sGachaOwner != "" || (playerData.coin < 10 && playerData.gacha <= 0)) return;
+            Networking.SetOwner(Networking.LocalPlayer, gameObject);
+            Gacha(1);
+        }
 
+        public void Purchase_Gacha10()
+        {
+            if (sGachaOwner != "" || (playerData.coin < 10 && playerData.gacha <= 0)) return;
             Networking.SetOwner(Networking.LocalPlayer, gameObject);
 
+            if (playerData.gacha > 1)   Gacha(Mathf.Min(playerData.gacha, 10));
+            else                        Gacha(10);
+        }
+
+        public void Gacha(int num)
+        {
             if (playerData.gacha > 0)
-                playerData.gacha -= 1;
+                playerData.gacha -= num;
             else
-                playerData.coin -= 10;
+                playerData.coin -= 10 * num;
 
             int totalPercent = 0; 
-            int result = 0;
+            sGachaResult = "";
 
             for (int i = 0; i <  percent_Gacha.Length; i++)
                 totalPercent += percent_Gacha[i];
 
+            sGachaOwner = Networking.LocalPlayer.displayName;
+
+            for (int count = 0; count < num; count++)
+            {
+                sGachaResult += $"{count + 1} - {GachaResult(totalPercent)}\n";
+            }
+            Dosync();
+        }
+
+        private string GachaResult(int totalPercent)
+        {
             int random = Random.Range(0, totalPercent + 1);
-            totalPercent = 0;
+            int randomStep = 0;
+            int coin = 0;
 
             for (int i = 0; i < percent_Gacha.Length; i++)
             {
-                totalPercent += percent_Gacha[i];
-                if (random < totalPercent)
-                {
-                    if (sGachaResult != "")
-                        break;
+                randomStep += percent_Gacha[i];
 
+                if (random < randomStep)
+                {
                     switch (i)
                     {
                         case 0: //1 - 10코인: 70 %
-                            result = Random.Range(1, 6);
-                            playerData.coin += result;
-                            sGachaResult = $"코인 +{result}";
-                            break;
+                            coin = Random.Range(1, 6);
+                            playerData.coin += coin;
+                            return $"코인 +{coin}";
                         case 1: //1 - 10코인: 70 %
-                            result = Random.Range(5, 11);
-                            playerData.coin += result;
-                            sGachaResult = $"코인 +{result}";
-                            break;
+                            coin = Random.Range(5, 11);
+                            playerData.coin += coin;
+                            return $"코인 +{coin}";
                         case 2: //10 - 15코인: 15 %
-                            result = Random.Range(10, 16);
-                            playerData.coin += result;
-                            sGachaResult = $"코인 +{result}";
-                            break;
+                            coin = Random.Range(10, 16);
+                            playerData.coin += coin;
+                            return $"코인 +{coin}";
                         case 3: //리바인권: 5 %
                             if (playerData.rebine >= 2)
                             {
                                 playerData.coin += 20;
-                                sGachaResult = $"코인 +20";
+                                return $"코인 +20";
                             }
                             else
                             {
                                 playerData.rebine += 1;
-                                sGachaResult = $"리바인권";
+                                return $"리바인권";
                             }
-                            break;
                         case 4: //벌칙룰렛 1회: 5 %
                             playerData.penalty += 1;
-                            sGachaResult = $"벌칙룰렛 1회권";
-                            break;
+                            return $"벌칙룰렛 1회권";
                         case 5: //15코인 - 50코인: 4.7 %
-                            result = Random.Range(15, 51);
-                            playerData.coin += result;
-                            sGachaResult = $"코인 +{result}";
-                            break;
+                            coin = Random.Range(15, 51);
+                            playerData.coin += coin;
+                            sGachaResult += $"코인 +{coin}";
+                            return $"코인 +{coin}";
                         case 6: //딜러 의상 변경: 0.3 %
-                            sGachaResult = $"딜러 의상변경권";
-                            break;
+                            return $"딜러 의상변경권";
                     }
                 }
             }
-            sGachaOwner = Networking.LocalPlayer.displayName;
-            Dosync();
+            return "";
         }
 
         public void Reset_Gacha()
@@ -187,7 +204,6 @@ namespace Holdem
             sPenaltyOwner = Networking.LocalPlayer.displayName;
             Dosync();
         }
-
         public void Reset_Penalty()
         {
             if (!instanceData.DealerCheck(Networking.LocalPlayer.displayName))
@@ -196,50 +212,6 @@ namespace Holdem
             Networking.SetOwner(Networking.LocalPlayer, gameObject);
             sPenaltyResult = "";
             sPenaltyOwner = "";
-            Dosync();
-        }
-        #endregion
-        #region Charming
-        public void Purchase_Charming()
-        {
-            if (!textChamingOwner) return;
-
-            if (sCharmingOwner != "" || playerData.coin < 300) return;
-            playerData.coin -= 300;
-            Networking.SetOwner(Networking.LocalPlayer, gameObject);
-            sCharmingOwner = Networking.LocalPlayer.displayName;
-            Dosync();
-        }
-
-        public void Reset_Charming()
-        {
-            if (!textChamingOwner) return;
-
-            if (!instanceData.DealerCheck(Networking.LocalPlayer.displayName)) return;
-            Networking.SetOwner(Networking.LocalPlayer, gameObject);
-            sCharmingOwner = "";
-            Dosync();
-        }
-        #endregion
-        #region Cloth
-        public void Purchase_Cloth()
-        {
-            if (!textClothOwner) return;
-
-            if (sClothOwner != "" || playerData.coin < 200) return;
-            playerData.coin -= 200;
-            Networking.SetOwner(Networking.LocalPlayer, gameObject);
-            sClothOwner = Networking.LocalPlayer.displayName;
-            Dosync();
-        }
-
-        public void Reset_Cloth()
-        {
-            if (!textClothOwner) return;
-
-            if (!instanceData.DealerCheck(Networking.LocalPlayer.displayName)) return;
-            Networking.SetOwner(Networking.LocalPlayer, gameObject);
-            sClothOwner = "";
             Dosync();
         }
         #endregion
@@ -255,18 +227,41 @@ namespace Holdem
             SyncAction();
         }
 
+        public void Shop_ON()
+        {
+            Networking.SetOwner(Networking.LocalPlayer, gameObject);
+            isOpen = true;
+            Dosync();
+        }
+        public void Shop_OFF()
+        {
+            Networking.SetOwner(Networking.LocalPlayer, gameObject);
+            isOpen = false;
+            Dosync();
+        }
+
+        public override void OnPlayerJoined(VRCPlayerApi player)
+        {
+            if (Networking.IsOwner(gameObject))
+                Dosync();
+        }
+
         public void SyncAction()
         {
-            textGachaOwner.text = sGachaOwner;
-            textGachaInfo.text = sGachaResult;
+            if (textGachaOwner)
+                textGachaOwner.text = sGachaOwner;
+            if (textGachaInfo)
+                textGachaInfo.text = sGachaResult;
 
-            textPenaltyOwner.text = sPenaltyOwner;
-            textPenaltyInfo.text = sPenaltyResult;
+            if (textPenaltyOwner)
+                textPenaltyOwner.text = sPenaltyOwner;
+            if (textPenaltyInfo)
+                textPenaltyInfo.text = sPenaltyResult;
 
-            if (textChamingOwner)
-                textChamingOwner.text = sCharmingOwner;
-            if (textClothOwner)
-                textClothOwner.text = sClothOwner;
+            if (obj_shop)
+                obj_shop.SetActive(isOpen);
+            if (obj_result)
+                obj_result.SetActive(isOpen);
         }
     }
 }

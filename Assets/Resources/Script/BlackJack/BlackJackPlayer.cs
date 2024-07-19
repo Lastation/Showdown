@@ -17,7 +17,6 @@ public class BlackJackPlayer : UdonSharpBehaviour
     [UdonSynced] string _displayName = "";
     [UdonSynced] int playerID = 0;
     [UdonSynced] int _coin = 0;
-
     public int coin => _coin;
 
     public string displayName => _displayName;
@@ -32,7 +31,7 @@ public class BlackJackPlayer : UdonSharpBehaviour
         if (playerID != 0)
             return;
 
-        if (mainSystem.playerData.coin >= 20)
+        if (mainSystem.playerData.coin > 20)
             return;
 
         if (mainSystem.playerData.isPlayGame)

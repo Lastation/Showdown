@@ -2,7 +2,8 @@
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
-[UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
+
+[UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
 public class PrisonSystem : UdonSharpBehaviour
 {
     #region Prison

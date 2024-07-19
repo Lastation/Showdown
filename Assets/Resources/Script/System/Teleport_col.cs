@@ -4,6 +4,7 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 
+[UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
 public class Teleport_col : UdonSharpBehaviour
 {
     [SerializeField] Transform teleportPos;

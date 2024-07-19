@@ -19,6 +19,7 @@ namespace Holdem
     {
         [SerializeField] CardData[] cardData;
         [SerializeField] Transform[] tf_Position;
+        [SerializeField] TCardtype cardtype;
         int[] shuffleIndex = new int[52];
         int seed = 0;
 
@@ -86,14 +87,14 @@ namespace Holdem
         {
             cardData[index].tfvrcPickup.rotation = cardPosition.rotation;
             cardData[index].tfvrcPickup.position = cardPosition.position;
-            cardData[index].Set_Card_Index(shuffleIndex[index]);
+            cardData[index].Set_Card_Index(shuffleIndex[index], cardtype);
         }
 
         public void Set_CardPosition(int index, CardPosition cardPosition)
         {
             cardData[index].tfvrcPickup.rotation = tf_Position[(int)cardPosition].rotation;
             cardData[index].tfvrcPickup.position = tf_Position[(int)cardPosition].position;
-            cardData[index].Set_Card_Index(shuffleIndex[index]);
+            cardData[index].Set_Card_Index(shuffleIndex[index], cardtype);
         }
         public void Set_CardRotation(int index) => cardData[index].Set_Rotation();
 
