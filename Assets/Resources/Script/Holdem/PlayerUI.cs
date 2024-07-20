@@ -35,7 +35,8 @@ namespace Holdem
         }
         bool isDisplayToggle = false;
 
-        Color color_button = new Color(0.0627451f, 0.509804f, 1, 1);
+        Color color_button = new Color(78.0f/255.0f, 119.0f / 255.0f, 193.0f / 255.0f, 1f);
+
         string[] s_playerState = new string[8] { "", "Wait", "Turn", "Call", "Check", "Raise", "ALLIN", "Fold" };
 
         public void Set_Rotation()
@@ -113,9 +114,9 @@ namespace Holdem
             for (int i = 0; i < img_button.Length; i++)
             {
                 if (i == 2) // fold
-                    img_button[i].color = isTurn ? Color.red : Color.black;
+                    img_button[i].color = isTurn ? new Color(1.0f, 0.427451f, 0.4494184f, 1f) : Color.black;
                 else if (i == 3) // reset
-                    img_button[i].color = isTurn ? Color.yellow : Color.black;
+                    img_button[i].color = isTurn ? new Color(0.8784314f, 0.7647059f, 0.07058824f, 1f) : Color.black;
                 else
                     img_button[i].color = isTurn ? color_button : Color.black;
             }
@@ -160,6 +161,14 @@ namespace Holdem
             img_cards[4].sprite = mainSystem.Get_CardPattern(table_Cards[20]);
             img_cards[5].sprite = mainSystem.Get_CardPattern(table_Cards[21]);
             img_cards[6].sprite = mainSystem.Get_CardPattern(table_Cards[22]);
+
+            img_cards[0].material = mainSystem.Get_CardMaterial(table_Cards[0 + idx], 1);
+            img_cards[1].material = mainSystem.Get_CardMaterial(table_Cards[9 + idx], 1);
+            img_cards[2].material = mainSystem.Get_CardMaterial(table_Cards[18], 1);
+            img_cards[3].material = mainSystem.Get_CardMaterial(table_Cards[19], 1);
+            img_cards[4].material = mainSystem.Get_CardMaterial(table_Cards[20], 1);
+            img_cards[5].material = mainSystem.Get_CardMaterial(table_Cards[21], 1);
+            img_cards[6].material = mainSystem.Get_CardMaterial(table_Cards[22], 1);
         }
         public void Set_DisplayActive(bool value) => objUIPlay.SetActive(value);
         public void Set_UI_Height(bool value)

@@ -76,6 +76,8 @@ namespace Holdem
                 Set_Rain_OFF();
             else
                 Set_Rain_ON();
+
+            Set_Color();
         }
         #region Localization
         [SerializeField] LocalizationData localizationData;
@@ -322,30 +324,99 @@ namespace Holdem
         #region Card Sprite
         [SerializeField] Sprite[] imgPattern;
         [SerializeField] Sprite[] imgPattern_BlackJack;
-        [SerializeField] Color[] colorCard;
         [SerializeField] Material[] matCardPattern;
+        [SerializeField] Material[] matCardColor;
+        [SerializeField] Slider[] sliderCardColor;
         [SerializeField] Slider sliderCardEmission;
-        int iPatternIndex = 0;
+        Color[] colorCard = new Color[5];
 
-        public void Set_Color_Pattern_White() => Set_Color_Pattern(0);
-        public void Set_Color_Pattern_Blue() => Set_Color_Pattern(1);
-        public void Set_Color_Pattern_Red() => Set_Color_Pattern(2);
-        public void Set_Color_Pattern_Orange() => Set_Color_Pattern(3);
-        public void Set_Color_Pattern_Green() => Set_Color_Pattern(4);
-
-        public void Set_Color_Pattern(int index)
-        {
-            iPatternIndex = index;
-            Set_Color();
-        }
         public void Set_Color()
         {
-            matCardPattern[0].SetColor("_EmissionColor", colorCard[iPatternIndex] * sliderCardEmission.value);
-            matCardPattern[1].SetColor("_Color", colorCard[iPatternIndex] * sliderCardEmission.value);
-            matCardPattern[2].SetColor("_EmissionColor", colorCard[iPatternIndex] * sliderCardEmission.value);
+            Set_Color_Back();
+            Set_Color_Spade();
+            Set_Color_Diamond();
+            Set_Color_Heart();
+            Set_Color_Clover();
         }
+
+        public void Set_Color_Back()
+        {
+            colorCard[4].r = sliderCardColor[12].value / 255.0f;
+            colorCard[4].g = sliderCardColor[13].value / 255.0f;
+            colorCard[4].b = sliderCardColor[14].value / 255.0f;
+            colorCard[4].a = 1.0f;
+
+            matCardPattern[0].SetColor("_EmissionColor", colorCard[4] * sliderCardEmission.value);
+            matCardPattern[1].SetColor("_Color", colorCard[4]);
+        }
+
+        public void Set_Color_Spade()
+        {
+            colorCard[0].r = sliderCardColor[0].value / 255.0f;
+            colorCard[0].g = sliderCardColor[1].value / 255.0f;
+            colorCard[0].b = sliderCardColor[2].value / 255.0f;
+            colorCard[0].a = 1.0f;
+
+            matCardColor[0].SetColor("_EmissionColor", colorCard[0] * sliderCardEmission.value);
+            matCardColor[4].SetColor("_Color", colorCard[0]);
+            matCardColor[8].SetColor("_EmissionColor", colorCard[0] * sliderCardEmission.value);
+        }
+        public void Set_Color_Diamond()
+        {
+            colorCard[1].r = sliderCardColor[3].value / 255.0f;
+            colorCard[1].g = sliderCardColor[4].value / 255.0f;
+            colorCard[1].b = sliderCardColor[5].value / 255.0f;
+            colorCard[1].a = 1.0f;
+
+            matCardColor[1].SetColor("_EmissionColor", colorCard[1] * sliderCardEmission.value);
+            matCardColor[5].SetColor("_Color", colorCard[1]);
+            matCardColor[9].SetColor("_EmissionColor", colorCard[1] * sliderCardEmission.value);
+        }
+        public void Set_Color_Heart()
+        {
+            colorCard[2].r = sliderCardColor[6].value / 255.0f;
+            colorCard[2].g = sliderCardColor[7].value / 255.0f;
+            colorCard[2].b = sliderCardColor[8].value / 255.0f;
+            colorCard[2].a = 1.0f;
+
+            matCardColor[2].SetColor("_EmissionColor", colorCard[2] * sliderCardEmission.value);
+            matCardColor[6].SetColor("_Color", colorCard[2]);
+            matCardColor[10].SetColor("_EmissionColor", colorCard[2] * sliderCardEmission.value);
+        }
+        public void Set_Color_Clover()
+        {
+            colorCard[3].r = sliderCardColor[9].value / 255.0f;
+            colorCard[3].g = sliderCardColor[10].value / 255.0f;
+            colorCard[3].b = sliderCardColor[11].value / 255.0f;
+            colorCard[3].a = 1.0f;
+
+            matCardColor[3].SetColor("_EmissionColor", colorCard[3] * sliderCardEmission.value);
+            matCardColor[7].SetColor("_Color", colorCard[3]);
+            matCardColor[11].SetColor("_EmissionColor", colorCard[3] * sliderCardEmission.value);
+        }
+
         public Sprite Get_CardPattern(int idx) => imgPattern[idx];
         public Sprite Get_CardPattern2(int idx) => imgPattern_BlackJack[idx];
+
+        public Material Get_CardMaterial(int idx, int type = 0)
+        {
+            int matidx = Mathf.FloorToInt(idx / 13);
+            if (type == 0)
+            {
+                if (matidx < 0 || matidx >= 4) return matCardColor[0];
+                else return matCardColor[matidx];
+            }
+            else if (type == 1)
+            {
+                if (matidx < 0 || matidx >= 4) return matCardColor[4];
+                else return matCardColor[matidx + 4];
+            }
+            else
+            {
+                if (matidx < 0 || matidx >= 4) return matCardColor[8];
+                else return matCardColor[matidx + 8];
+            }
+        }
         #endregion
 
         #region PlayerConfig

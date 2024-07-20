@@ -31,12 +31,13 @@ namespace Holdem
             {
                 case TCardtype.normal:
                     sr_pattern.sprite = mainSystem.Get_CardPattern(i_cardIndex);
+                    sr_pattern.material = mainSystem.Get_CardMaterial(i_cardIndex);
                     break;
                 case TCardtype.blackjack:
                     sr_pattern.sprite = mainSystem.Get_CardPattern2(i_cardIndex);
+                    sr_pattern.material = mainSystem.Get_CardMaterial(i_cardIndex, 2);
                     break;
             }
-
         }
         public void Set_Card_Index(int index, TCardtype cardtype)
         {

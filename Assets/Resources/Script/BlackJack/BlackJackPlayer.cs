@@ -74,6 +74,17 @@ public class BlackJackPlayer : UdonSharpBehaviour
             Exit_Table();
         DoSync();
     }
+    public void Add_Coin2x()
+    {
+        if (!Networking.IsOwner(gameObject)) return;
+        if (playerID == 0) return;
+
+        mainSystem.playerData.coin += 10;
+        _coin = mainSystem.playerData.coin;
+        if (_coin > 20)
+            Exit_Table();
+        DoSync();
+    }
 
     #region Networking
     public void DoSync()

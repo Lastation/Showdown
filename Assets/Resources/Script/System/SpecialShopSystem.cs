@@ -12,47 +12,12 @@ namespace Holdem
     {
         [SerializeField] InstanceData instanceData;
         [SerializeField] PlayerData playerData;
-        [SerializeField] Text textRebineTimer, textChamingOwner, textClothOwner;
+        [SerializeField] Text textChamingOwner, textClothOwner;
         [UdonSynced] string sCharmingOwner = "";
         [UdonSynced] string sClothOwner = "";
 
         [SerializeField] GameObject obj_shop;
         [UdonSynced] bool isOpen = false;
-        [UdonSynced] int dRebineTimer;
-
-        #region Rebine
-        public void FixedUpdate()
-        {
-            if (dRebineTimer > DateTime.Now.Second && playerData.rebine <= 0)
-                textRebineTimer.text = $"다음 리바인권 구매까지 {dRebineTimer - DateTime.Now.Second} 초 남았어요!";
-            else
-            {
-                textRebineTimer.text = "리바인권 구매 가능!";
-            }
-        }
-
-        public void Purchase_Rebine()
-        {
-            if (playerData.chip > 2000)
-                return;
-
-            if (playerData.rebine > 0)
-            {
-                playerData.chip = 20000;
-                playerData.rebine -= 1;
-            }
-            else if (playerData.coin >= 20)
-            {
-                if (dRebineTimer > DateTime.Now.Second)
-                    return;
-                playerData.chip = 20000;
-                playerData.coin -= 20;
-                Networking.SetOwner(Networking.LocalPlayer, gameObject);
-                dRebineTimer = DateTime.Now.AddSeconds(120).Second;
-                Dosync();
-            }
-        }
-        #endregion
 
         #region Charming
         public void Purchase_Charming()

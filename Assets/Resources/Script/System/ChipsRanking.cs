@@ -161,7 +161,7 @@ namespace Holdem
                 return;
             int index = instanceData.Get_DataIndex(player.displayName);
             if (index == -1) return;
-            instanceData.Save_Datas(player.displayName, players[index].chip, players[index].coin);
+            instanceData.Save_Datas(player.displayName, players[index].chip, players[index].coin, players);
         }
         public void Load_Datas()
         {

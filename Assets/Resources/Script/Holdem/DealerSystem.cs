@@ -174,19 +174,6 @@ namespace Holdem
             }
             Set_GameAuto();
         }
-        public bool isShowdown()
-        {
-            int count = 0;
-            for (int i = 0; i < playerState.Length; i++)
-            {
-                if (isInGame(i) && playerState[i] != PlayerState.ALLIN)
-                    count++;
-            }
-            if (count <= 1)
-                return true;
-
-            return false;
-        }
         public int tableCallSize
         {
             get => _tableCallSize;
@@ -364,6 +351,7 @@ namespace Holdem
                     Set_TableState(TableState.Turn);
                     Set_HandRank();
                     Play_AudioClip(SE_Voice_Index.Draw);
+                    Set_TurnIndex(dealerIdx + 1);
                     break;
                 case TableState.Turn:
                     cardSystem.Set_CardPosition(21, CardPosition.Turn);
@@ -371,6 +359,7 @@ namespace Holdem
                     Set_TableState(TableState.River);
                     Set_HandRank();
                     Play_AudioClip(SE_Voice_Index.Draw);
+                    Set_TurnIndex(turnIdx + 1);
                     break;
                 case TableState.River:
                     cardSystem.Set_CardPosition(22, CardPosition.River);
@@ -378,6 +367,7 @@ namespace Holdem
                     Set_TableState(TableState.Open);
                     Set_HandRank();
                     Play_AudioClip(SE_Voice_Index.Draw);
+                    Set_TurnIndex(turnIdx + 1);
                     break;
                 case TableState.Open:
                     if (Get_InGameCount() > 1)
@@ -592,16 +582,6 @@ namespace Holdem
         }
         private bool isStraight(bool[] hand, int[] pair, int playerID)
         {
-            if (pair[0] != 0 && pair[1] != 0 && pair[2] != 0 && pair[3] != 0 && pair[12] != 0)
-            {
-                if (hand[0] == true) p_handSuit[playerID] = HandSuit.Spade;
-                else if (hand[13] == true) p_handSuit[playerID] = HandSuit.Diamond;
-                else if (hand[26] == true) p_handSuit[playerID] = HandSuit.Heart;
-                else if (hand[39] == true) p_handSuit[playerID] = HandSuit.Clover;
-                p_handNumber[playerID] = HandNumber.Five;
-                kiker[playerID] = 0;
-                return true;
-            }
             for (int i = 8; i >= 0; i--)
                 if (pair[i] != 0 && pair[i + 1] != 0 && pair[i + 2] != 0 && pair[i + 3] != 0 && pair[i + 4] != 0)
                 {
@@ -613,6 +593,17 @@ namespace Holdem
                     kiker[playerID] = 0;
                     return true;
                 }
+
+            if (pair[0] != 0 && pair[1] != 0 && pair[2] != 0 && pair[3] != 0 && pair[12] != 0)
+            {
+                if (hand[0] == true) p_handSuit[playerID] = HandSuit.Spade;
+                else if (hand[13] == true) p_handSuit[playerID] = HandSuit.Diamond;
+                else if (hand[26] == true) p_handSuit[playerID] = HandSuit.Heart;
+                else if (hand[39] == true) p_handSuit[playerID] = HandSuit.Clover;
+                p_handNumber[playerID] = HandNumber.Five;
+                kiker[playerID] = 0;
+                return true;
+            }
             return false;
         }
         private bool isThreeOfAKind(bool[] hand, int[] pair, int playerID)
@@ -631,6 +622,7 @@ namespace Holdem
                 }
             return false;
         }
+
         private bool isTwoPair(bool[] hand, int[] pair, int playerID)
         {
             int count = 0;
@@ -656,6 +648,7 @@ namespace Holdem
                         if (cnt > 0)
                         {
                             kiker[playerID] += i * 2;
+                            check[i] = true;
                             cnt--;
                         }
                     }
@@ -740,11 +733,10 @@ namespace Holdem
             if (value == -1)
             {
                 playerState[index] = PlayerState.Fold;
-
-                if (isShowdown())
+                if (Get_InGameCount() <= 1)
                 {
-                    while (tableState != TableState.Wait)
-                        Set_GameAuto();
+                    Set_TableState(TableState.Open);
+                    Set_GameAuto();
                     return;
                 }
                 Set_NextTurn();
@@ -819,6 +811,8 @@ namespace Holdem
                 _tableCallSize = 0;
                 Set_PlayerStateWait();
                 Set_GameAuto();
+                DoSync();
+                return;
             }
 
             if (tableState != TableState.Wait)
@@ -930,6 +924,7 @@ namespace Holdem
 
             for (int i = 0; i < playerSystem.Length; i++)
             {
+                if (highHand != hands[i]) continue;
                 if (hands[i] == -1 || playerState[i] == PlayerState.Fold) continue;
                 tableSidePot[i] = tableSidePot[i] - (minSidePot / chapCount);
                 hands[i] = -1;

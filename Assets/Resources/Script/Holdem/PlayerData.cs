@@ -18,6 +18,7 @@ namespace Holdem
 
         int _chip = 0;
         int _coin = 0;
+        int _usedCoin = 0;
         int _gacha = 0;
         int _rebine = 0;
         int _penalty = 0;
@@ -75,7 +76,26 @@ namespace Holdem
             get => _coin;
             set
             {
+                int usedCoin = _coin - value;
+                if (usedCoin > 0)
+                {
+                    _usedCoin += usedCoin;
+                    if (_usedCoin >= 200)
+                    {
+                        _usedCoin -= 200;
+                        if (rebine < 2)
+                            rebine = 2;
+                    }
+                    else if (_usedCoin >= 100)
+                    {
+                        _usedCoin -= 100;
+                        if (rebine < 2)
+                            rebine += 1;
+                    }
+                }
                 _coin = value;
+
+
                 text_coin.text = _coin.ToString();
                 chipUI.ApplyText(_chip, _coin);
             }

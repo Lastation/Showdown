@@ -121,12 +121,26 @@ namespace Holdem
             return false;
         }
 
-        public void Save_Datas(string displayName, int chip, int coin)
+        public void Save_Datas(string displayName, int chip, int coin, ChipsRankingPlayer[] players)
         {
             for (int i = 0; i < sDisplayName.Length; i++)
             {
                 if (sDisplayName[i] == displayName)
                 {
+                    iChip[i] = chip;
+                    iCoin[i] = coin;
+                    Debug.Log($"[{i}] - {displayName} : chip = {chip}, coin = {coin} saved");
+                    RequestSerialization();
+                    return;
+                }
+            }
+            for (int i = 0; i < players.Length; i++)
+            {
+                if (Networking.IsOwner(players[i].gameObject))
+                {
+                    if (players[i].chip != 20000 || players[i].coin != 0)
+                        continue;
+                    sDisplayName[i] = displayName;
                     iChip[i] = chip;
                     iCoin[i] = coin;
                     Debug.Log($"[{i}] - {displayName} : chip = {chip}, coin = {coin} saved");

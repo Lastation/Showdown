@@ -23,6 +23,12 @@ public class BlackJackSystem : UdonSharpBehaviour
     public void Add_Coin_P4() => Add_Coin_Player(3);
     public void Add_Coin_P5() => Add_Coin_Player(4);
 
+    public void Add_Coin2x_P1() => Add_Coin2x_Player(0);
+    public void Add_Coin2x_P2() => Add_Coin2x_Player(1);
+    public void Add_Coin2x_P3() => Add_Coin2x_Player(2);
+    public void Add_Coin2x_P4() => Add_Coin2x_Player(3);
+    public void Add_Coin2x_P5() => Add_Coin2x_Player(4);
+
 
     public void Kick_Game_P1() => Kick_Game(0);
     public void Kick_Game_P2() => Kick_Game(1);
@@ -58,6 +64,13 @@ public class BlackJackSystem : UdonSharpBehaviour
             return;
         mainSystem.playerData.coin += 1;
         players[index].SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "Add_Coin");
+    }
+    public void Add_Coin2x_Player(int index)
+    {
+        if (!players[index].isPlay)
+            return;
+        mainSystem.playerData.coin += 2;
+        players[index].SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "Add_Coin2x");
     }
     #endregion
     public void Set_PlayerName(string value, int index) => text_TablePlayerName[index].text = value;
