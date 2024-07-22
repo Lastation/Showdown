@@ -50,9 +50,15 @@ namespace Holdem
         public void Gacha(int num)
         {
             if (playerData.gacha > 0)
+            {
+                instanceData.GetTotalPercent().Add_Gacha_Index(1, num);
                 playerData.gacha -= num;
+            }
             else
+            {
+                instanceData.GetTotalPercent().Add_Gacha_Index(0, 10 * num);
                 playerData.coin -= 10 * num;
+            }
 
             int totalPercent = 0; 
             sGachaResult = "";
@@ -86,16 +92,20 @@ namespace Holdem
                         case 0: //1 - 10코인: 70 %
                             coin = Random.Range(1, 6);
                             playerData.coin += coin;
+                            instanceData.GetTotalPercent().Add_Gacha_Index(2, 1);
                             return $"코인 +{coin}";
                         case 1: //1 - 10코인: 70 %
                             coin = Random.Range(5, 11);
+                            instanceData.GetTotalPercent().Add_Gacha_Index(3, 1);
                             playerData.coin += coin;
                             return $"코인 +{coin}";
                         case 2: //10 - 15코인: 15 %
                             coin = Random.Range(10, 16);
+                            instanceData.GetTotalPercent().Add_Gacha_Index(4, 1);
                             playerData.coin += coin;
                             return $"코인 +{coin}";
                         case 3: //리바인권: 5 %
+                            instanceData.GetTotalPercent().Add_Gacha_Index(5, 1);
                             if (playerData.rebine >= 2)
                             {
                                 playerData.coin += 20;
@@ -108,13 +118,16 @@ namespace Holdem
                             }
                         case 4: //벌칙룰렛 1회: 5 %
                             playerData.penalty += 1;
+                            instanceData.GetTotalPercent().Add_Gacha_Index(6, 1);
                             return $"벌칙룰렛 1회권";
                         case 5: //15코인 - 50코인: 4.7 %
                             coin = Random.Range(15, 51);
+                            instanceData.GetTotalPercent().Add_Gacha_Index(7, 1);
                             playerData.coin += coin;
                             sGachaResult += $"코인 +{coin}";
                             return $"코인 +{coin}";
                         case 6: //딜러 의상 변경: 0.3 %
+                            instanceData.GetTotalPercent().Add_Gacha_Index(8, 1);
                             return $"딜러 의상변경권";
                     }
                 }
@@ -141,9 +154,15 @@ namespace Holdem
             Networking.SetOwner(Networking.LocalPlayer, gameObject);
 
             if (playerData.penalty > 0)
+            {
+                instanceData.GetTotalPercent().Add_Penalty_Index(1, 1);
                 playerData.penalty -= 1;
+            }
             else
+            {
+                instanceData.GetTotalPercent().Add_Penalty_Index(0, 40);
                 playerData.coin -= 40;
+            }
 
             int totalPercent = 0;
             int result = 0;
@@ -168,35 +187,45 @@ namespace Holdem
                             result = Random.Range(1, 21);
                             playerData.coin += result;
                             sPenaltyResult = $"코인 +{result}";
+                            instanceData.GetTotalPercent().Add_Penalty_Index(2, 1);
                             break;
                         case 1: //10 - 15코인: 15 %
                             result = Random.Range(20, 41);
                             playerData.coin += result;
                             sPenaltyResult = $"코인 +{result}";
+                            instanceData.GetTotalPercent().Add_Penalty_Index(3, 1);
                             break;
                         case 2:
                             sPenaltyResult = $"냥체 3분";
+                            instanceData.GetTotalPercent().Add_Penalty_Index(4, 1);
                             break;
                         case 3: //벌칙룰렛 1회: 5 %
                             sPenaltyResult = $"냥체 5분";
+                            instanceData.GetTotalPercent().Add_Penalty_Index(5, 1);
                             break;
                         case 4: //15코인 - 50코인: 4 %
                             sPenaltyResult = $"3인칭 3분";
+                            instanceData.GetTotalPercent().Add_Penalty_Index(6, 1);
                             break;
                         case 5: //3인칭 5분: 0.7 %
                             sPenaltyResult = $"3인칭 5분";
+                            instanceData.GetTotalPercent().Add_Penalty_Index(7, 1);
                             break;
                         case 6: //딜러 의상 변경: 0.3 %
                             sPenaltyResult = $"냥체 3분 + 딜러의상변경 3분";
+                            instanceData.GetTotalPercent().Add_Penalty_Index(8, 1);
                             break;
                         case 7: //딜러 의상 변경: 0.3 %
                             sPenaltyResult = $"냥체 5분 + 딜러의상변경 5분";
+                            instanceData.GetTotalPercent().Add_Penalty_Index(9, 1);
                             break;
                         case 8: //딜러 의상 변경: 0.3 %
                             sPenaltyResult = $"3인칭 3분 + 딜러의상변경 3분";
+                            instanceData.GetTotalPercent().Add_Penalty_Index(10, 1);
                             break;
                         case 9: //딜러 의상 변경: 0.3 %
                             sPenaltyResult = $"3인칭 5분 + 딜러의상변경 5분";
+                            instanceData.GetTotalPercent().Add_Penalty_Index(11, 1);
                             break;
                     }
                 }

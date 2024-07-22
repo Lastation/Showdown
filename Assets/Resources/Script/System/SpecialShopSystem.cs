@@ -12,9 +12,10 @@ namespace Holdem
     {
         [SerializeField] InstanceData instanceData;
         [SerializeField] PlayerData playerData;
-        [SerializeField] Text textChamingOwner, textClothOwner;
+        [SerializeField] Text textChamingOwner, textClothOwner, textTrophyOwner;
         [UdonSynced] string sCharmingOwner = "";
         [UdonSynced] string sClothOwner = "";
+        [UdonSynced] string sTrophyOwner = "";
 
         [SerializeField] GameObject obj_shop;
         [UdonSynced] bool isOpen = false;
@@ -63,6 +64,18 @@ namespace Holdem
             Dosync();
         }
         #endregion
+        #region Trophy
+        public void Purchase_Trophy()
+        {
+            if (!textTrophyOwner) return;
+
+            if (sTrophyOwner != "" || playerData.coin < 400) return;
+            playerData.coin -= 400;
+            Networking.SetOwner(Networking.LocalPlayer, gameObject);
+            sTrophyOwner = Networking.LocalPlayer.displayName;
+            Dosync();
+        }
+        #endregion
 
         public void Dosync()
         {
@@ -100,6 +113,8 @@ namespace Holdem
                 textChamingOwner.text = sCharmingOwner;
             if (textClothOwner)
                 textClothOwner.text = sClothOwner;
+            if (textTrophyOwner)
+                textTrophyOwner.text = sTrophyOwner;
             if (obj_shop)
                 obj_shop.SetActive(isOpen);
         }

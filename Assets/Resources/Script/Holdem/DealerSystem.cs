@@ -172,6 +172,7 @@ namespace Holdem
                 playerSystem[turnIdx].SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "Set_Turn");
                 return;
             }
+            Set_PlayerStateWait();
             Set_GameAuto();
         }
         public int tableCallSize
@@ -359,7 +360,7 @@ namespace Holdem
                     Set_TableState(TableState.River);
                     Set_HandRank();
                     Play_AudioClip(SE_Voice_Index.Draw);
-                    Set_TurnIndex(turnIdx + 1);
+                    Set_TurnIndex(dealerIdx + 1);
                     break;
                 case TableState.River:
                     cardSystem.Set_CardPosition(22, CardPosition.River);
@@ -367,7 +368,7 @@ namespace Holdem
                     Set_TableState(TableState.Open);
                     Set_HandRank();
                     Play_AudioClip(SE_Voice_Index.Draw);
-                    Set_TurnIndex(turnIdx + 1);
+                    Set_TurnIndex(dealerIdx + 1);
                     break;
                 case TableState.Open:
                     if (Get_InGameCount() > 1)
@@ -746,7 +747,8 @@ namespace Holdem
             {
                 if (playerSystem[index].chip == 0)
                 {
-                    Set_PlayerStateWait();
+                    if (tableCallSize < value)
+                        Set_PlayerStateWait();
                     playerState[index] = PlayerState.ALLIN;
                 }
                 else if (value == 0)

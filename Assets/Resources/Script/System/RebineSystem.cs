@@ -28,7 +28,7 @@ namespace Holdem
         {
             if (Networking.IsOwner(gameObject))
             {
-                timeSpan = new TimeSpan(DateTime.Now.Ticks);
+                timeSpan = new TimeSpan(DateTime.Now.Ticks);    
                 if (dRebineTimer > dPrevTime && dPrevTime != timeSpan.TotalSeconds)
                 {
                     dPrevTime = timeSpan.TotalSeconds;

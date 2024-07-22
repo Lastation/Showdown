@@ -9,6 +9,7 @@ namespace Holdem
     {
         [SerializeField] private string[] sDealer;          // 쇼다운 딜러
         [SerializeField] private PlayerData playerData;     // 플레이어 데이터
+        [SerializeField] private TotalPercent totalPercent; // 상점 통계
 
         [SerializeField] AudioClip[] acVoice;
 
@@ -34,6 +35,11 @@ namespace Holdem
         }
         public int getChip(int idx) => iChip[idx];
         public int getCoin(int idx) => iCoin[idx];
+
+        public TotalPercent GetTotalPercent()
+        {
+            return totalPercent;
+        }
 
         void Start()
         {
@@ -111,6 +117,13 @@ namespace Holdem
                 }
             }
             RequestSerialization();
+        }
+
+        public override void OnAvatarChanged(VRCPlayerApi player)
+        {
+            if (player != Networking.LocalPlayer)   return;
+            if (DealerCheck(player.displayName))    return;
+            player.Respawn();
         }
 
         public bool DealerCheck(string displayName)

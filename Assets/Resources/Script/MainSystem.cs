@@ -339,6 +339,70 @@ namespace Holdem
             Set_Color_Clover();
         }
 
+        public void Set_Color_Basic()
+        {
+            // Spade
+            sliderCardColor[0].value = 0.0f;    // R
+            sliderCardColor[1].value = 0.0f;    // G
+            sliderCardColor[2].value = 0.0f;    // B
+            // Diamond
+            sliderCardColor[3].value = 255.0f;    // R
+            sliderCardColor[4].value = 0.0f;    // G
+            sliderCardColor[5].value = 0.0f;    // B
+            // Heart
+            sliderCardColor[6].value = 255.0f;    // R
+            sliderCardColor[7].value = 0.0f;    // G
+            sliderCardColor[8].value = 0.0f;    // B
+            // Clover
+            sliderCardColor[9].value = 0.0f;    // R
+            sliderCardColor[10].value = 0.0f;    // G
+            sliderCardColor[11].value = 0.0f;    // B
+
+            Set_Color();
+        }
+        public void Set_Color_Black()
+        {
+            // Spade
+            sliderCardColor[0].value = 0.0f;    // R
+            sliderCardColor[1].value = 0.0f;    // G
+            sliderCardColor[2].value = 0.0f;    // B
+            // Diamond
+            sliderCardColor[3].value = 0.0f;    // R
+            sliderCardColor[4].value = 0.0f;    // G
+            sliderCardColor[5].value = 0.0f;    // B
+            // Heart
+            sliderCardColor[6].value = 0.0f;    // R
+            sliderCardColor[7].value = 0.0f;    // G
+            sliderCardColor[8].value = 0.0f;    // B
+            // Clover
+            sliderCardColor[9].value = 0.0f;    // R
+            sliderCardColor[10].value = 0.0f;    // G
+            sliderCardColor[11].value = 0.0f;    // B
+
+            Set_Color();
+        }
+        public void Set_Color_White()
+        {
+            // Spade
+            sliderCardColor[0].value = 255.0f;    // R
+            sliderCardColor[1].value = 255.0f;    // G
+            sliderCardColor[2].value = 255.0f;    // B
+            // Diamond
+            sliderCardColor[3].value = 255.0f;    // R
+            sliderCardColor[4].value = 255.0f;    // G
+            sliderCardColor[5].value = 255.0f;    // B
+            // Heart
+            sliderCardColor[6].value = 255.0f;    // R
+            sliderCardColor[7].value = 255.0f;    // G
+            sliderCardColor[8].value = 255.0f;    // B
+            // Clover
+            sliderCardColor[9].value = 255.0f;    // R
+            sliderCardColor[10].value = 255.0f;    // G
+            sliderCardColor[11].value = 255.0f;    // B
+
+            Set_Color();
+        }
+
         public void Set_Color_Back()
         {
             colorCard[4].r = sliderCardColor[12].value / 255.0f;
@@ -408,7 +472,7 @@ namespace Holdem
             }
             else if (type == 1)
             {
-                if (matidx < 0 || matidx >= 4) return matCardColor[4];
+                if (matidx < 0 || matidx >= 4) return matCardPattern[1];
                 else return matCardColor[matidx + 4];
             }
             else
