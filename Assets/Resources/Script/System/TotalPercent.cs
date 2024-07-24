@@ -16,7 +16,7 @@ namespace Holdem
         [SerializeField] Text gachaText;
         [SerializeField] Text penaltyText;
 
-        public void Awake()
+        public void Start()
         {
             for (int i = 0; i < gachaTotal.Length; i++)
                 gachaTotal[i] = 0;

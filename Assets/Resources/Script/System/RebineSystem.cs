@@ -17,7 +17,7 @@ namespace Holdem
         [UdonSynced] double dPrevTime;
         TimeSpan timeSpan; 
 
-        public void Awake()
+        public void Start()
         {
             dRebineTimer = 0;
             dPrevTime = 0;
