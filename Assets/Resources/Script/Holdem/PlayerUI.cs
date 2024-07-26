@@ -65,8 +65,10 @@ namespace Holdem
             Set_Player_Spectator();
         }
 
-        public void Set_StateText(PlayerState playerState, TableState tableState)
+        public void Set_StateText(PlayerState playerState, TableState tableState, int handRank)
         {
+            this.handRank = handRank;
+
             if (textChip.text == "")
             {
                 textState.text = "";
@@ -75,7 +77,9 @@ namespace Holdem
             }
 
             if (tableState == TableState.Wait && playerState != PlayerState.OutOfGame && playerState != PlayerState.Fold)
-                textState.text = mainSystem.Get_HandRank(handRank);
+            {
+                textState.text = $"{mainSystem.Get_HandRank(handRank)}";
+            }
             else
                 textState.text = $"{s_playerState[(int)playerState]}";
 
@@ -89,10 +93,6 @@ namespace Holdem
             Set_Player_Spectator();
         }
 
-        public void UpdateHandRank()
-        {
-            textState.text = mainSystem.Get_HandRank(handRank);
-        }
         public void Set_BetSize(int size)
         {
             textPotSize.text = size == 0 ? "" : $"{size}";

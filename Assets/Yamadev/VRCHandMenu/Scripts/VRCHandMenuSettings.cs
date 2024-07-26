@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UdonSharp;
-using Yamadev.YamaStream;
 
 namespace Yamadev.VRCHandMenu.Script
 {
@@ -51,8 +50,6 @@ namespace Yamadev.VRCHandMenu.Script
 
         public Slider LightDirectionalSlider;
         public Slider LightAvatarSlider;
-
-        public Controller yamaPlayer;
 
         public Transform PPHandle => ppHandle;
         public Transform LightHandle => lightHandle;

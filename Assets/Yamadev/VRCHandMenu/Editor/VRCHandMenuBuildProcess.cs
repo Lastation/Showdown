@@ -5,7 +5,6 @@ using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using VRC.SDKBase;
 using Yamadev.VRCHandMenu.Script;
-using Yamadev.YamaStream;
 
 namespace Yamadev.VRCHandMenu.Editor
 {
@@ -15,7 +14,6 @@ namespace Yamadev.VRCHandMenu.Editor
         public void OnProcessScene(Scene scene, BuildReport report)
         {
             SetMainCamera();
-            SetYamaPlayer();
         }
 
         void SetMainCamera()
@@ -40,21 +38,6 @@ namespace Yamadev.VRCHandMenu.Editor
             }
             
             desc.ReferenceCamera = mainCamera;
-        }
-
-        void SetYamaPlayer()
-        {
-            foreach (VRCHandMenuSettings settings in Resources.FindObjectsOfTypeAll<VRCHandMenuSettings>())
-            {
-                if (settings.yamaPlayer == null) continue;
-                foreach (UIController uiController in settings.GetComponentsInChildren<UIController>())
-                {
-                    if (uiController.GetProgramVariable("_controller") == null)
-                    {
-                        if (settings.yamaPlayer != null) uiController.SetVariable("_controller", settings.yamaPlayer);
-                    }
-                }
-            }
         }
     }
 }

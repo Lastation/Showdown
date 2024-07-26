@@ -1,6 +1,7 @@
 ﻿
 using UdonSharp;
 using UnityEngine;
+using VRC.SDK3.ClientSim;
 using VRC.SDKBase;
 
 [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]

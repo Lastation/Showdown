@@ -87,7 +87,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Stop: 0
+    - _Stop: 1
     - _T: 0
     - _Time: 1
     - _TimeScale: 0.3

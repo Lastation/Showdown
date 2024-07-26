@@ -43,7 +43,7 @@ namespace Holdem
             if (sGachaOwner != "" || (playerData.coin < 100 && playerData.gacha <= 0)) return;
             Networking.SetOwner(Networking.LocalPlayer, gameObject);
 
-            if (playerData.gacha > 1)   Gacha(Mathf.Min(playerData.gacha, 10));
+            if (playerData.gacha > 0)   Gacha(Mathf.Min(playerData.gacha, 10));
             else                        Gacha(10);
         }
 

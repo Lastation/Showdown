@@ -33,8 +33,6 @@ namespace Yamadev.VRCHandMenu.Editor
         SerializedProperty _lightDirectionalSlider;
         SerializedProperty _lightAvatarSlider;
 
-        SerializedProperty _yamaPlayer;
-
         ReorderableList _penList;
         ReorderableList _switchList;
 
@@ -62,8 +60,6 @@ namespace Yamadev.VRCHandMenu.Editor
 
             _lightDirectionalSlider = serializedObject.FindProperty("LightDirectionalSlider");
             _lightAvatarSlider = serializedObject.FindProperty("LightAvatarSlider");
-
-            _yamaPlayer = serializedObject.FindProperty("yamaPlayer");
 
             if (_penList == null)
                 _penList = new ReorderableList(serializedObject, _pens)
@@ -163,15 +159,6 @@ namespace Yamadev.VRCHandMenu.Editor
                 EditorGUILayout.LabelField("Switch Targets", _bold);
 
                 if (_switchList != null) _switchList.DoLayoutList();
-            }
-
-            using (new GUILayout.VerticalScope(GUI.skin.box))
-            {
-                EditorGUILayout.LabelField("Video Player", _bold);
-
-                EditorGUI.indentLevel++;
-                EditorGUILayout.PropertyField(_yamaPlayer);
-                EditorGUI.indentLevel--;
             }
 
             if (serializedObject.ApplyModifiedProperties())

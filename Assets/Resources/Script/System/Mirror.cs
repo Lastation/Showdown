@@ -18,7 +18,7 @@ namespace Holdem
             if (player != Networking.LocalPlayer)
                 return;
             for (int i = 0; i < objActive.Length; i++) objActive[i].SetActive(false);
-            for (int i = 0; i < objToggle.Length; i++) objToggle[i].isOn =false;
+            for (int i = 0; i < objToggle.Length; i++) objToggle[i].isOn = false;
         }
     }
 }
