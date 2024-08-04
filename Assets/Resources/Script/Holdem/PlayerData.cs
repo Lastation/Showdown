@@ -1,5 +1,6 @@
 ﻿using UdonSharp;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 using VRC.Udon.Serialization.OdinSerializer.Utilities;
 
@@ -33,7 +34,7 @@ namespace Holdem
                 for (int i = 0; i < textGacha.Length; i++)
                     textGacha[i].text = _gacha > 0 ? $"티켓 1장" : "10 Coin";
                 for (int i = 0; i < textGacha10.Length; i++)
-                    textGacha10[i].text = _gacha > 0 ? $"티켓 {_gacha}장" : "100 Coin";
+                    textGacha10[i].text = _gacha > 0 ? $"티켓 {_gacha}장" : _coin > 10 ? $"{Mathf.Min((_coin - _coin % 10), 100)} Coin" : "X";
             }
         }
         public int rebine {
@@ -95,6 +96,9 @@ namespace Holdem
                 }
                 _coin = value;
 
+                if (_gacha <= 0)
+                    for (int i = 0; i < textGacha10.Length; i++)
+                        textGacha10[i].text = _coin > 10 ? $"{Mathf.Min((_coin - (_coin % 10)), 100)} Coin" : "X";
 
                 text_coin.text = _coin.ToString();
                 chipUI.ApplyText(_chip, _coin);

@@ -148,7 +148,7 @@ namespace Holdem
         };
 
         [ReadOnly]
-        public string[] sHankRankKOR = new string[11]
+        public string[] sHankRankKOR = new string[10]
         {
         "하이카드",
         "원 페어",
@@ -159,11 +159,10 @@ namespace Holdem
         "풀하우스",
         "포카드",
         "스트레이트 플러쉬",
-        "백 스트레이트 플러쉬",
         "로얄 스트레이트 플러쉬"
         };
         [ReadOnly]
-        public string[] sHankRankJP = new string[11]
+        public string[] sHankRankJP = new string[10]
         {
         "ハイカード",
         "ワンペア",
@@ -174,11 +173,10 @@ namespace Holdem
         "フルハウス",
         "フォーカード",
         "ストレートフラッシュ",
-        "ストレートフラッシュ",
         "ロイヤルストレートフラッシュ"
         };
         [ReadOnly]
-        public string[] sHankRankENG = new string[11]
+        public string[] sHankRankENG = new string[10]
         {
         "High card",
         "One pair",
@@ -189,7 +187,6 @@ namespace Holdem
         "Full house",
         "Four of a kind",
         "Straight flush",
-        "Back Straight Flush",
         "Royal flush"
         };
     }

@@ -13,6 +13,7 @@ namespace Holdem
         public InstanceData instanceData;
         [SerializeField] VRCPickup vrcPickup;
         [SerializeField] AudioSource asVoice;
+        [SerializeField] bool isSound = true;
 
 
         public override void OnPickup()
@@ -27,14 +28,18 @@ namespace Holdem
         }
         public void SetPlayerVoice()
         {
-            asVoice.PlayOneShot(instanceData.getVoice(0));
+            if (isSound)
+                asVoice.PlayOneShot(instanceData.getVoice(0));
+
             Networking.GetOwner(gameObject).SetVoiceDistanceFar(10000);
             Networking.GetOwner(gameObject).SetVoiceVolumetricRadius(1000);
             Networking.GetOwner(gameObject).SetVoiceGain(20);
         }
         public void ReSetPlayerVoice()
         {
-            asVoice.PlayOneShot(instanceData.getVoice(1));
+            if (isSound)
+                asVoice.PlayOneShot(instanceData.getVoice(1));
+
             Networking.GetOwner(gameObject).SetVoiceDistanceFar(25);
             Networking.GetOwner(gameObject).SetVoiceVolumetricRadius(0);
             Networking.GetOwner(gameObject).SetVoiceGain(15);

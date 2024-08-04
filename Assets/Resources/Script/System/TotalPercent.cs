@@ -10,7 +10,7 @@ namespace Holdem
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class TotalPercent : UdonSharpBehaviour
     {
-        [UdonSynced] int[] gachaTotal = new int[9];
+        [UdonSynced] int[] gachaTotal = new int[10];
         [UdonSynced] int[] penaltyTotal = new int[12];
 
         [SerializeField] Text gachaText;
@@ -44,7 +44,8 @@ namespace Holdem
                 "리바인권: ", gachaTotal[5], "개", "\n",
                 "벌칙룰렛 1회: ", gachaTotal[6], "개", "\n",
                 "15코인 - 50코인: ", gachaTotal[7], "개", "\n",
-                "딜러 의상 변경: ", gachaTotal[8], "개");
+                "딜러 의상 변경: ", gachaTotal[8], "개", "\n",
+                "애교권: ", gachaTotal[9], "개");
         }
 
         public void Add_Penalty_Index(int idx, int value)

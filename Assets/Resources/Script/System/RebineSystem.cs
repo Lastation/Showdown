@@ -44,6 +44,15 @@ namespace Holdem
 
         public void Purchase_Rebine()
         {
+            if (instanceData.DealerCheck(Networking.LocalPlayer.displayName) && dRebineTimer > dPrevTime)
+            {
+                if (!Networking.IsOwner(gameObject))
+                    Networking.SetOwner(Networking.LocalPlayer, gameObject);
+                dRebineTimer = dPrevTime;
+                RequestSerialization();
+                return;
+            }
+
             if (playerData.isPlayGame)
                 return;
 
@@ -70,6 +79,7 @@ namespace Holdem
                 dPrevTime = timeSpan.TotalSeconds;
                 RequestSerialization();
             }
+
         }
         #endregion
     }

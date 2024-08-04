@@ -1,6 +1,4 @@
 ﻿
-using System.Linq.Expressions;
-using TMPro;
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,7 +25,7 @@ namespace Holdem
 
         [UdonSynced] bool isOpen = false;
 
-        int[] percent_Gacha = new int[7] { 5000, 2500, 1000, 500, 500, 470, 30 };
+        int[] percent_Gacha = new int[8] { 5000, 2500, 1000, 500, 500, 470, 20, 10 };
         int[] percent_Penalty = new int[10] { 5500, 1500, 800, 400, 800, 400, 200, 100, 200, 100 };
 
         #region Gacha
@@ -40,11 +38,11 @@ namespace Holdem
 
         public void Purchase_Gacha10()
         {
-            if (sGachaOwner != "" || (playerData.coin < 100 && playerData.gacha <= 0)) return;
+            if (sGachaOwner != "" || (playerData.coin < 10 && playerData.gacha <= 0)) return;
             Networking.SetOwner(Networking.LocalPlayer, gameObject);
 
             if (playerData.gacha > 0)   Gacha(Mathf.Min(playerData.gacha, 10));
-            else                        Gacha(10);
+            else                        Gacha(Mathf.Min(playerData.coin / 10, 10));
         }
 
         public void Gacha(int num)
@@ -68,6 +66,7 @@ namespace Holdem
 
             sGachaOwner = Networking.LocalPlayer.displayName;
 
+            Random.InitState(Random.Range(0, 100000));
             for (int count = 0; count < num; count++)
             {
                 sGachaResult += $"{count + 1} - {GachaResult(totalPercent)}\n";
@@ -81,11 +80,13 @@ namespace Holdem
             int randomStep = 0;
             int coin = 0;
 
+            Debug.Log(random);
+
             for (int i = 0; i < percent_Gacha.Length; i++)
             {
                 randomStep += percent_Gacha[i];
 
-                if (random < randomStep)
+                if (random <= randomStep)
                 {
                     switch (i)
                     {
@@ -126,9 +127,12 @@ namespace Holdem
                             playerData.coin += coin;
                             sGachaResult += $"코인 +{coin}";
                             return $"코인 +{coin}";
-                        case 6: //딜러 의상 변경: 0.3 %
+                        case 6: //딜러 의상 변경: 0.2 %
                             instanceData.GetTotalPercent().Add_Gacha_Index(8, 1);
                             return $"딜러 의상변경권";
+                        case 7: //애교권: 0.1 %
+                            instanceData.GetTotalPercent().Add_Gacha_Index(9, 1);
+                            return $"애교권";
                     }
                 }
             }
@@ -170,6 +174,7 @@ namespace Holdem
             for (int i = 0; i < percent_Penalty.Length; i++)
                 totalPercent += percent_Penalty[i];
 
+            Random.InitState(Random.Range(0, 100000));
             int random = Random.Range(0, totalPercent + 1);
             totalPercent = 0;
 
