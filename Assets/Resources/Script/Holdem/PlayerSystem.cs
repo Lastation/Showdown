@@ -364,9 +364,12 @@ namespace Holdem
         #region Raise
         public void Add_RaiseChipSize_Reset()
         {
-            int size;
-            if (dealerSystem.tableCallSize <= 100) size = 400 - dealerSystem.tableCallSize;
-            else if (_betSize == 100) size = 300;
+            int size = 0;
+            if (dealerSystem.tableCallSize <= 100)
+            {
+                if (_betSize == 100) size = 300;
+                else if (_betSize == 200) size = 200;
+            }
             else size = dealerSystem.tableCallSize;
             Set_RaiseChipSize(size, false);
         }
