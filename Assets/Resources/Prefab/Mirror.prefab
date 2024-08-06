@@ -213,17 +213,17 @@ MonoBehaviour:
   - {x: 8, y: -0.00014826798, z: -4.7380953}
   - {x: 8, y: -0.0001471951, z: 4.261906}
   m_Textures0:
-  - {x: 1, y: 0.8462798}
-  - {x: 1, y: 0.11502972}
-  - {x: 0.000000029802322, y: 0.84627986}
-  - {x: -0.000000059604645, y: 0.11502978}
+  - {x: 8.500001, y: 6.040477}
+  - {x: 8.5, y: -5.6595244}
+  - {x: -7.4999995, y: 6.0404778}
+  - {x: -7.500001, y: -5.6595235}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
-  - {x: -1, y: -5.9211885e-15, z: -0.00000004967054, w: -1}
-  - {x: -1, y: -5.9211885e-15, z: -0.00000004967054, w: -1}
-  - {x: -1, y: -5.9211885e-15, z: -0.00000004967054, w: -1}
-  - {x: -1, y: -5.9211885e-15, z: -0.00000004967054, w: -1}
+  - {x: -1, y: -5.465713e-15, z: -0.000000045849735, w: -1}
+  - {x: -1, y: -5.4657126e-15, z: -0.00000004584973, w: -1}
+  - {x: -1, y: -5.4657126e-15, z: -0.00000004584973, w: -1}
+  - {x: -1, y: -5.4657126e-15, z: -0.00000004584973, w: -1}
   m_Colors: []
   m_UnwrapParameters:
     m_HardAngle: 88
@@ -407,7 +407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4159691904270599153
 RectTransform:
   m_ObjectHideFlags: 0
@@ -815,7 +815,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MIRROR
+  m_text: Camera
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ed511914256a3340ae79bf15255599d, type: 2}
   m_sharedMaterial: {fileID: 5826952332673327439, guid: 8ed511914256a3340ae79bf15255599d,
@@ -1265,9 +1265,6 @@ MonoBehaviour:
   - {fileID: 3826742167048363840}
   objToggle:
   - {fileID: 9213405125190405608}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &7273667229785486809
 MonoBehaviour:
   m_ObjectHideFlags: 0

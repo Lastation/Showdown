@@ -22,11 +22,15 @@ namespace Holdem
         {
             VRCPlayerApi localPlayer = Networking.LocalPlayer;
 
-            if (displayName != "")
-                return;
-
             if (!instanceData.DealerCheck(localPlayer.displayName))
                 return;
+
+            if (displayName != "")
+            {
+                if (displayName != localPlayer.displayName)
+                    SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.Owner, "Exit_Table");
+                return;
+            }
 
             Set_Owner(localPlayer);
 

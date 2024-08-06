@@ -22,6 +22,11 @@ namespace Holdem
         [SerializeField] Transform _tfDealerPos;
         [SerializeField] int tableNumber;
 
+        [SerializeField] GameObject[] chip_100;
+        [SerializeField] GameObject[] chip_1000;
+        [SerializeField] GameObject[] chip_10000;
+        [SerializeField] GameObject[] chip_100000;
+
         [UdonSynced] int actionSize = 0;
         [UdonSynced, FieldChangeCallback(nameof(displayName))] string _displayName = "";
         [UdonSynced] int playerID = 0;
@@ -366,10 +371,8 @@ namespace Holdem
         {
             int size = 0;
             if (dealerSystem.tableCallSize <= 100)
-            {
-                if (_betSize == 100) size = 300;
-                else if (_betSize == 200) size = 200;
-            }
+                size = 400 - dealerSystem.tableCallSize;
+
             else size = dealerSystem.tableCallSize;
             Set_RaiseChipSize(size, false);
         }
@@ -414,12 +417,58 @@ namespace Holdem
             playerUI.Update_Chip(_chip);
             playerUI.Set_BetSize(betSize);
             Update_Action();
+            Update_Chips();
         }
         public void Update_Action()
         {
             if (!Networking.IsOwner(dealerSystem.gameObject)) return;
             if (playerID == 0) dealerSystem.Exit_Player(tableNumber);
             if (isAction) dealerSystem.Set_BetAction(tableNumber, actionSize);
+        }
+
+        public void Update_Chips()
+        {
+            int bet100 = (_betSize % 1000) / 100;
+            int bet1000 = (_betSize % 10000) / 1000;
+            int bet10000 = (_betSize % 100000) / 10000;
+            int bet100000 = (_betSize % 1000000) / 100000;
+
+            for (int i = 0; i < chip_100.Length; i++)
+            {
+                if (i < bet100)
+                {
+                    chip_100[i].SetActive(true);
+                    continue;
+                }
+                chip_100[i].SetActive(false);
+            }
+            for (int i = 0; i < chip_1000.Length; i++)
+            {
+                if (i < bet1000)
+                {
+                    chip_1000[i].SetActive(true);
+                    continue;
+                }
+                chip_1000[i].SetActive(false);
+            }
+            for (int i = 0; i < chip_10000.Length; i++)
+            {
+                if (i < bet10000)
+                {
+                    chip_10000[i].SetActive(true);
+                    continue;
+                }
+                chip_10000[i].SetActive(false);
+            }
+            for (int i = 0; i < chip_100000.Length; i++)
+            {
+                if (i < bet100000)
+                {
+                    chip_100000[i].SetActive(true);
+                    continue;
+                }
+                chip_100000[i].SetActive(false);
+            }
         }
 
         public override void OnPlayerJoined(VRCPlayerApi player)
