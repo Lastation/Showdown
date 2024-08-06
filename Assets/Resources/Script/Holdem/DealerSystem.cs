@@ -956,7 +956,8 @@ namespace Holdem
         {
             for (int i = 0; i < playerSystem.Length; i++)
             {
-                playerSystem[i].getPlayerUI.Set_StateText(playerState[i], tableState, handRank[i]);
+                if (Get_InGameCount() > 1)
+                    playerSystem[i].getPlayerUI.Set_StateText(playerState[i], tableState, handRank[i]);
                 playerSystem[i].getPlayerUI.Set_CardImage(table_Cards, i);
             }
         }
