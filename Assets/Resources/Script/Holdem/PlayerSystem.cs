@@ -22,16 +22,6 @@ namespace Holdem
         [SerializeField] Transform _tfDealerPos;
         [SerializeField] int tableNumber;
 
-        [SerializeField] GameObject[] chip_100;
-        [SerializeField] GameObject[] chip_1000;
-        [SerializeField] GameObject[] chip_10000;
-        [SerializeField] GameObject[] chip_100000;
-
-        [SerializeField] GameObject[] p_chip_100;
-        [SerializeField] GameObject[] p_chip_1000;
-        [SerializeField] GameObject[] p_chip_10000;
-        [SerializeField] GameObject[] p_chip_100000;
-
         [UdonSynced] int actionSize = 0;
         [UdonSynced, FieldChangeCallback(nameof(displayName))] string _displayName = "";
         [UdonSynced] int playerID = 0;
@@ -411,17 +401,6 @@ namespace Holdem
         }
         #endregion
         #region Networking
-        public void Reset_BetSize()
-        {
-            for (int i = 0; i < chip_100.Length; i++)
-                chip_100[i].SetActive(false);
-            for (int i = 0; i < chip_1000.Length; i++)
-                chip_1000[i].SetActive(false);
-            for (int i = 0; i < chip_10000.Length; i++)
-                chip_10000[i].SetActive(false);
-            for (int i = 0; i < chip_100000.Length; i++)
-                chip_100000[i].SetActive(false);
-        }
         public void DoSync()
         {
             UpdateSyncs();
@@ -431,115 +410,16 @@ namespace Holdem
         public override void OnDeserialization() => UpdateSyncs();
         public void UpdateSyncs()
         {
-            Debug.Log(_displayName);
-
             playerUI.Update_DisplayName(_displayName);
             playerUI.Update_Chip(_chip);
             playerUI.Set_BetSize(betSize);
             Update_Action();
-            Update_Chips();
-            Update_TotalChips();
         }
         public void Update_Action()
         {
             if (!Networking.IsOwner(dealerSystem.gameObject)) return;
             if (playerID == 0) dealerSystem.Exit_Player(tableNumber);
             if (isAction) dealerSystem.Set_BetAction(tableNumber, actionSize);
-        }
-
-        public void Update_Chips()
-        {
-            if (prevBet == _betSize) return;
-            prevBet = _betSize;
-
-            int bet100 = (_betSize % 1000) / 100;
-            int bet1000 = (_betSize % 10000) / 1000;
-            int bet10000 = (_betSize % 100000) / 10000;
-            int bet100000 = (_betSize % 1000000) / 100000;
-
-            for (int i = 0; i < chip_100.Length; i++)
-            {
-                if (i < bet100)
-                {
-                    chip_100[i].SetActive(true);
-                    continue;
-                }
-                chip_100[i].SetActive(false);
-            }
-            for (int i = 0; i < chip_1000.Length; i++)
-            {
-                if (i < bet1000)
-                {
-                    chip_1000[i].SetActive(true);
-                    continue;
-                }
-                chip_1000[i].SetActive(false);
-            }
-            for (int i = 0; i < chip_10000.Length; i++)
-            {
-                if (i < bet10000)
-                {
-                    chip_10000[i].SetActive(true);
-                    continue;
-                }
-                chip_10000[i].SetActive(false);
-            }
-            for (int i = 0; i < chip_100000.Length; i++)
-            {
-                if (i < bet100000)
-                {
-                    chip_100000[i].SetActive(true);
-                    continue;
-                }
-                chip_100000[i].SetActive(false);
-            }
-        }
-        public void Update_TotalChips()
-        {
-            if (prevChip == _chip) return;
-            prevChip = _chip;
-
-            int bet100 = (_chip % 1000) / 100;
-            int bet1000 = (_chip % 10000) / 1000;
-            int bet10000 = (_chip % 100000) / 10000;
-            int bet100000 = (_chip % 1000000) / 100000;
-
-            for (int i = 0; i < p_chip_100.Length; i++)
-            {
-                if (i < bet100)
-                {
-                    p_chip_100[i].SetActive(true);
-                    continue;
-                }
-                p_chip_100[i].SetActive(false);
-            }
-            for (int i = 0; i < p_chip_1000.Length; i++)
-            {
-                if (i < bet1000)
-                {
-                    p_chip_1000[i].SetActive(true);
-                    continue;
-                }
-                p_chip_1000[i].SetActive(false);
-            }
-            for (int i = 0; i < p_chip_10000.Length; i++)
-            {
-                if (i < bet10000)
-                {
-                    p_chip_10000[i].SetActive(true);
-                    continue;
-                }
-                p_chip_10000[i].SetActive(false);
-            }
-            for (int i = 0; i < p_chip_100000.Length; i++)
-            {
-                if (i < bet100000)
-                {
-                    p_chip_100000[i].SetActive(true);
-                    continue;
-                }
-                p_chip_100000[i].SetActive(false);
-            }
         }
 
         public override void OnPlayerJoined(VRCPlayerApi player)
