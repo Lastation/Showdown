@@ -94,6 +94,7 @@ namespace Holdem
         TableState prevState;
 
         public DealerUI getDealerUI => dealerUI;
+        public PlayerSystem[] getPlayerSystem => playerSystem;
 
         public void Add_SidePot(int value, int index)
         {

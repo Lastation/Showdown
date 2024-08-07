@@ -34,8 +34,6 @@ namespace Holdem
         BlindCheck blindCheck = BlindCheck.None;
         bool isTurn = false;
         float fTurnTimer = 0.0f;
-        int prevBet = 0;
-        int prevChip = 0;
       
         #region Sync Function
         public string displayName
