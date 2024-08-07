@@ -87,10 +87,16 @@ namespace Holdem
         [SerializeField] GameObject obj_dealerBtn;
         [SerializeField] GameObject obj_turnArrow;
         [SerializeField] DealerUI dealerUI;
+
+        [SerializeField] GameObject[] chip_100;
+        [SerializeField] GameObject[] chip_1000;
+        [SerializeField] GameObject[] chip_10000;
+        [SerializeField] GameObject[] chip_100000;
         #endregion
 
         int[] playerSideSize = new int[9];
         int turnIdx, dealerIdx = 0;
+        TableState prevState;
 
         public DealerUI getDealerUI => dealerUI;
 
@@ -948,6 +954,7 @@ namespace Holdem
         {
             Update_PlayerUI();
             Update_PlayerReset();
+            Update_Chips();
             dealerUI.Set_TableState(9 - Get_PlayerCount(), tableState != TableState.Wait);
             dealerUI.Set_TablePot(tableTotalPot < 0 ? 0 : tableTotalPot);
             dealerUI.Set_Table_PlayerPot(tableSidePot);
@@ -960,6 +967,59 @@ namespace Holdem
                     playerSystem[i].getPlayerUI.Set_StateText(playerState[i], tableState, handRank[i]);
                 playerSystem[i].getPlayerUI.Set_CardImage(table_Cards, i);
             }
+        }
+
+        public void Update_Chips()
+        {
+            if (prevState == _tableState)
+                return;
+
+            prevState = _tableState;
+
+            int bet100 = (tableTotalPot % 1000) / 100;
+            int bet1000 = (tableTotalPot % 10000) / 1000;
+            int bet10000 = (tableTotalPot % 100000) / 10000;
+            int bet100000 = (tableTotalPot % 1000000) / 100000;
+
+            for (int i = 0; i < chip_100.Length; i++)
+            {
+                if (i < bet100)
+                {
+                    chip_100[i].SetActive(true);
+                    continue;
+                }
+                chip_100[i].SetActive(false);
+            }
+            for (int i = 0; i < chip_1000.Length; i++)
+            {
+                if (i < bet1000)
+                {
+                    chip_1000[i].SetActive(true);
+                    continue;
+                }
+                chip_1000[i].SetActive(false);
+            }
+            for (int i = 0; i < chip_10000.Length; i++)
+            {
+                if (i < bet10000)
+                {
+                    chip_10000[i].SetActive(true);
+                    continue;
+                }
+                chip_10000[i].SetActive(false);
+            }
+            for (int i = 0; i < chip_100000.Length; i++)
+            {
+                if (i < bet100000)
+                {
+                    chip_100000[i].SetActive(true);
+                    continue;
+                }
+                chip_100000[i].SetActive(false);
+            }
+
+            for (int i = 0; i < playerSystem.Length; i++)
+                playerSystem[i].Reset_BetSize();
         }
 
         public void Update_PlayerReset()

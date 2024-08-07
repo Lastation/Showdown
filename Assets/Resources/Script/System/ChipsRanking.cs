@@ -39,8 +39,8 @@ namespace Holdem
             }
         }
 
-        int[] playersID = new int[100];
-        int[] playersCoin = new int[100];
+        int[] playersID = new int[75];
+        int[] playersCoin = new int[75];
 
         #region QuickSort
         private void QuickSort(int low, int high)

@@ -14,9 +14,9 @@ namespace Holdem
 
         [SerializeField] AudioClip[] acVoice;
 
-        [UdonSynced] string[] sDisplayName = new string[100];
-        [UdonSynced] int[] iChip = new int[100];
-        [UdonSynced] int[] iCoin = new int[100];
+        [UdonSynced] string[] sDisplayName = new string[75];
+        [UdonSynced] int[] iChip = new int[75];
+        [UdonSynced] int[] iCoin = new int[75];
         [UdonSynced] int[] dealerID = new int[20];
         [SerializeField] GameObject[] obj_dealerTag;
 
