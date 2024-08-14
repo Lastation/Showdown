@@ -17,7 +17,7 @@ namespace Holdem
         [UdonSynced] string[] sDisplayName = new string[75];
         [UdonSynced] int[] iChip = new int[75];
         [UdonSynced] int[] iCoin = new int[75];
-        [UdonSynced] int[] dealerID = new int[20];
+        [UdonSynced] int[] dealerID = new int[25];
         [SerializeField] GameObject[] obj_dealerTag;
 
         public int index = -1;
@@ -152,8 +152,6 @@ namespace Holdem
             {
                 if (Networking.IsOwner(players[i].gameObject))
                 {
-                    if (players[i].chip != 20000 || players[i].coin != 0)
-                        continue;
                     sDisplayName[i] = displayName;
                     iChip[i] = chip;
                     iCoin[i] = coin;
