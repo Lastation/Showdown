@@ -111,6 +111,13 @@ namespace Holdem
             }
             PlayerRankText.text = (index).ToString() + sub;
         }
+        public void ResetPlayer()
+        {
+            chip = 0;
+            coin = 0;
+            displayName = "";
+            Dosync();
+        }
 
         public void SetPlayer(int idx)
         {

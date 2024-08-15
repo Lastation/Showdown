@@ -162,14 +162,14 @@ namespace Holdem
             int index = instanceData.Get_DataIndex(player.displayName);
             if (index == -1) return;
 
+            if (!Networking.IsOwner(Networking.LocalPlayer, players[index].gameObject))
+                Networking.SetOwner(Networking.LocalPlayer, gameObject);
+
             if (players[index].coin <= 0)
             {
-                players[index].chip = 0;
-                players[index].coin = 0;
-                instanceData.Save_Datas("", 0, 0, players);
+                players[index].ResetPlayer();
             }
-            else
-                instanceData.Save_Datas(player.displayName, players[index].chip, players[index].coin, players);
+            instanceData.Save_Datas(player.displayName, players[index].chip, players[index].coin, players);
         }
         public void Load_Datas()
         {

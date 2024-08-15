@@ -130,8 +130,6 @@ Shader "Unlit/Window"
                 d = sqrt(d);
                 offs *= d;
                 col += tex2D(_GrabTexture, projUv + offs);
-                a++;
-
                 return col * .9;
             }
             ENDCG
