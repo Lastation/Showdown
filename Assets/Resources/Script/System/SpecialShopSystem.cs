@@ -69,8 +69,8 @@ namespace Holdem
         {
             if (!textTrophyOwner) return;
 
-            if (sTrophyOwner != "" || playerData.coin < 400) return;
-            playerData.coin -= 400;
+            if (sTrophyOwner != "" || playerData.coin < 450) return;
+            playerData.coin -= 450;
             Networking.SetOwner(Networking.LocalPlayer, gameObject);
             sTrophyOwner = Networking.LocalPlayer.displayName;
             Dosync();
