@@ -120,13 +120,6 @@ namespace Holdem
             RequestSerialization();
         }
 
-        public override void OnAvatarChanged(VRCPlayerApi player)
-        {
-            if (player != Networking.LocalPlayer)   return;
-            if (DealerCheck(player.displayName))    return;
-            player.Respawn();
-        }
-
         public bool DealerCheck(string displayName)
         {
             for (int i = 0; i < sDealer.Length; i++)
