@@ -8,6 +8,7 @@ namespace Holdem
 {
     public class TableOwnerUI : UdonSharpBehaviour
     {
+        [SerializeField] MainSystem mainSystem;
         [SerializeField] TextMeshProUGUI text_DisplayName;
         [SerializeField] GameObject obj_TableDealerUI;
         [SerializeField] GameObject obj_TableJoin, obj_TableExit;

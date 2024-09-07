@@ -19,9 +19,24 @@ public class BlackJackPlayer : UdonSharpBehaviour
     [UdonSynced] int _coin = 0;
     public int coin => _coin;
 
-    public string displayName => _displayName;
-
     public bool isPlay => playerID != 0 ? true : false;
+
+    #region Get&Set
+    public string displayName
+    {
+        get => _displayName;
+        set
+        {
+            _displayName = value;
+            holdemDealer.UpdatePlayerNames();
+            getTextJoinBtn.gameObject.SetActive(value == "" && !mainManager.GetPlayerData.isPlayGame ? true : false);
+            if (!Networking.IsOwner(holdemDealer.gameObject))
+                return;
+            if (value == "")
+                holdemDealer.ExitPlayer(tableNumber);
+        }
+    }
+    #endregion
 
     #region Enter & Exit
     public void Enter_Game()

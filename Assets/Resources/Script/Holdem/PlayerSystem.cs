@@ -82,7 +82,7 @@ namespace Holdem
             betSize = 0;
             voiceType = SE_Table_Type.Basic;
         }
-        public void FixedUpdate()
+        public void FixedUpdated()
         {
             playerUI.Set_Rotation();
 
