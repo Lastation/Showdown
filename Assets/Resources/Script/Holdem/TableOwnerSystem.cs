@@ -10,7 +10,6 @@ namespace Holdem
         [UdonSynced] string displayName;
         [UdonSynced] int playerId;
 
-        [SerializeField] BlackJackSystem blackJackSystem = null;
         [SerializeField] DealerSystem dealerSystem = null;
         [SerializeField] CardSystem cardSystem;
         [SerializeField] TableOwnerUI tableOwnerUI;
@@ -35,7 +34,6 @@ namespace Holdem
             Set_Owner(localPlayer);
 
             if (dealerSystem != null) dealerSystem.Set_Owner(localPlayer);
-            if (blackJackSystem != null) blackJackSystem.Set_Owner(localPlayer);
             tableOwnerUI.Set_Owner(localPlayer);
             cardSystem.Set_Owner(localPlayer);
 
